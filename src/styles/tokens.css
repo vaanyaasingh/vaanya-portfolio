@@ -1,0 +1,58 @@
+/* Design tokens — from the Vaanya Singh design system (claude.ai/design). Keep in sync. */
+:root{
+/* Paper & ink */
+--paper-0:#FBF8F2;--paper-1:#F5EFE5;--paper-2:#ECE4D6;--paper-3:#DDD2C0;
+--ink-1:#1D1A2B;--ink-2:#3C3850;--ink-3:#6B6679;--ink-4:#9C97A6;
+/* Pastel field */
+--peach:#F7C8A6;--mint:#BFE6D4;--lilac:#CEC6F4;--rose:#F2B9B7;--butter:#F4DE9E;--sky:#BCD6F2;
+/* Saturated accents — dots, rings, full stops, status only. No ink fills: active states are paper or lilac. */
+--tangerine:#EE9A3A;--vermilion:#E0523F;--violet:#9A6BE0;--moss:#4F8B6C;
+/* Semantic */
+--bg-page:var(--paper-1);--surface-card:var(--paper-0);--surface-inverse:var(--ink-1);
+--surface-glass:rgba(251,248,242,.55);
+--text-body:var(--ink-1);--text-muted:var(--ink-3);--text-faint:var(--ink-4);--text-inverse:var(--paper-0);
+--text-accent:var(--vermilion);
+--border-hair:rgba(29,26,43,.12);--border-strong:rgba(29,26,43,.85);
+--focus-ring:var(--violet);
+--selection:var(--butter);
+
+/* Type */
+--font-display:'Newsreader',Georgia,serif;
+--weight-display:300;
+--font-serif:'Newsreader',Georgia,'Times New Roman',serif;
+--font-mono:'Geist Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+--type-mega:clamp(64px,11vw,176px);
+--type-display:clamp(48px,7vw,112px);
+--type-h1:clamp(40px,4.6vw,72px);
+--type-h2:clamp(30px,3.2vw,48px);
+--type-h3:28px;
+--type-lead:clamp(19px,1.6vw,22px);
+--type-body:18px;
+--type-small:15px;
+--type-label:12px;
+--lh-tight:.92;--lh-snug:1.12;--lh-body:1.55;
+--tracking-display:-.025em;--tracking-label:.08em;
+
+/* Space */
+--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;--space-9:96px;--space-10:144px;
+--gutter:clamp(20px,4vw,56px);
+--content-max:1320px;--measure:62ch;
+--radius-xs:6px;--radius-sm:12px;--radius-md:20px;--radius-lg:32px;--radius-pill:999px;
+--shadow-soft:0 1px 0 rgba(255,255,255,.6) inset,0 20px 40px -24px rgba(29,26,43,.28);
+--shadow-lift:0 1px 0 rgba(255,255,255,.7) inset,0 36px 60px -30px rgba(29,26,43,.42);
+--blur-glass:18px;
+
+/* Motion */
+--ease-out:cubic-bezier(.22,1,.36,1);
+--ease-spring:cubic-bezier(.34,1.56,.64,1);
+--ease-inout:cubic-bezier(.65,0,.35,1);
+--dur-fast:180ms;--dur-base:420ms;--dur-slow:900ms;--dur-drift:24s;
+
+/* Texture */
+--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+--grain-opacity:.22;
+--gradient-dawn:radial-gradient(60% 55% at 12% 18%,var(--peach) 0%,transparent 60%),radial-gradient(50% 50% at 88% 12%,var(--lilac) 0%,transparent 62%),radial-gradient(55% 60% at 70% 92%,var(--mint) 0%,transparent 60%),radial-gradient(40% 40% at 20% 88%,var(--butter) 0%,transparent 60%),var(--paper-1);
+--gradient-dusk:radial-gradient(60% 60% at 80% 20%,var(--rose) 0%,transparent 60%),radial-gradient(55% 55% at 15% 70%,var(--lilac) 0%,transparent 62%),radial-gradient(45% 45% at 60% 100%,var(--sky) 0%,transparent 60%),var(--paper-1);
+--gradient-meadow:radial-gradient(60% 60% at 20% 20%,var(--mint) 0%,transparent 62%),radial-gradient(50% 50% at 85% 60%,var(--butter) 0%,transparent 60%),radial-gradient(45% 45% at 40% 100%,var(--sky) 0%,transparent 60%),var(--paper-1);
+--gradient-night:radial-gradient(55% 55% at 20% 20%,#3B3170 0%,transparent 60%),radial-gradient(50% 50% at 85% 80%,#6A3446 0%,transparent 62%),var(--ink-1);
+}
