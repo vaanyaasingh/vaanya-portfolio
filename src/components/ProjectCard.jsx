@@ -2,13 +2,14 @@ import { useRef } from 'react';
 import { TLink } from './TLink.jsx';
 import { Tag } from './Tag.jsx';
 import { Media } from './Media.jsx';
+import { kindsOf } from '../data/projects.js';
 import { hasFinePointer, prefersReducedMotion } from '../lib/motion.js';
 
 /* Pastel tile with pointer tilt (±8°) and a glare that follows the pointer.
    `pill` is the compact variant for smaller projects: one row, no image. */
 export function ProjectCard({ project, index, pill = false }) {
   const ref = useRef(null);
-  const { id, title, kind, year, role, tone, cover, thumb } = project;
+  const { id, title, year, role, tone, cover, thumb } = project;
 
   const move = (e) => {
     if (!hasFinePointer() || prefersReducedMotion()) return;
@@ -38,7 +39,7 @@ export function ProjectCard({ project, index, pill = false }) {
         <span className="card__title">{title}</span>
         {role && <span className="card__role">{role}</span>}
       </span>
-      <span className="card__tags">{kind && <Tag tone="paper">{kind}</Tag>}{year && <Tag>{year}</Tag>}</span>
+      <span className="card__tags">{kindsOf(project).map((k) => <Tag key={k} tone="paper">{k}</Tag>)}{year && <Tag>{year}</Tag>}</span>
       <span className="card__arrow" aria-hidden="true">↗</span>
     </TLink>
   );
@@ -48,7 +49,7 @@ export function ProjectCard({ project, index, pill = false }) {
       <span className="card__grain" aria-hidden="true" />
       <span className="card__glare" aria-hidden="true" />
       <span className="card__top">
-        <span className="card__tags">{kind && <Tag tone="paper">{kind}</Tag>}{year && <Tag>{year}</Tag>}</span>
+        <span className="card__tags">{kindsOf(project).map((k) => <Tag key={k} tone="paper">{k}</Tag>)}{year && <Tag>{year}</Tag>}</span>
         <span className="card__index">{String(index).padStart(2, '0')}</span>
       </span>
       <Media src={thumb || cover} alt="" tone={tone} ratio="4/3" label="project image" className="card__media" />

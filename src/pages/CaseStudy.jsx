@@ -6,7 +6,7 @@ import { Button } from '../components/Button.jsx';
 import { Media } from '../components/Media.jsx';
 import { Reveal } from '../components/Reveal.jsx';
 import { TLink } from '../components/TLink.jsx';
-import { projects, getProject } from '../data/projects.js';
+import { projects, getProject, kindsOf } from '../data/projects.js';
 import { useTitle } from '../lib/useTitle.js';
 import NotFound from './NotFound.jsx';
 
@@ -180,13 +180,13 @@ export default function CaseStudy() {
       <Progress />
       <div className="rise" style={{ '--d': '0ms' }}><Button variant="ghost" to="/" label="Work">← All work</Button></div>
       <div className="tags rise" style={{ '--d': '60ms' }}>
-        <Tag tone={p.tone}>{p.kind}</Tag><Tag>{p.year}</Tag>
+        {kindsOf(p).map((k) => <Tag key={k} tone={p.tone}>{k}</Tag>)}<Tag>{p.year}</Tag>
         {p.placeholder && <Tag dot>Case study in progress</Tag>}
       </div>
       <MixedHeadline size="var(--type-display)" delay={100} parts={[p.title, { text: '·', style: 'accent' }, { text: p.hook, style: 'italic' }]} />
 
       <dl className="cs-meta rise" style={{ '--d': '420ms' }}>
-        {[['Role', p.role], ['Stack', p.stack], ['Year', p.year], ['Type', p.kind]].map(([k, v]) => (
+        {[['Role', p.role], ['Stack', p.stack], ['Year', p.year], ['Type', kindsOf(p).join(' · ')]].map(([k, v]) => (
           <div key={k}><dt className="label">{k}</dt><dd>{v}</dd></div>
         ))}
       </dl>

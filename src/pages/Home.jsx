@@ -9,7 +9,7 @@ import { ProjectCard } from '../components/ProjectCard.jsx';
 import { Reveal, SplitHeading } from '../components/Reveal.jsx';
 import { Contact } from '../components/Contact.jsx';
 import { Experience, GoGirl, Study } from '../components/Experience.jsx';
-import { projects, categories } from '../data/projects.js';
+import { projects, categories, kindsOf } from '../data/projects.js';
 import { useTransition } from '../lib/transition.jsx';
 import { hasFinePointer, prefersReducedMotion } from '../lib/motion.js';
 import { useTitle } from '../lib/useTitle.js';
@@ -55,7 +55,7 @@ export default function Home() {
   useTitle('');
   const { scrollTo } = useTransition();
   const [filter, setFilter] = useState('All');
-  const list = useMemo(() => (filter === 'All' ? projects : projects.filter((p) => p.kind === filter)), [filter]);
+  const list = useMemo(() => (filter === 'All' ? projects : projects.filter((p) => kindsOf(p).includes(filter))), [filter]);
   const cells = layout(list);
 
   return (
@@ -94,7 +94,7 @@ export default function Home() {
           <SplitHeading className="h1" parts={['Selected', { text: 'work', style: 'italic' }]} />
           <Reveal className="chips" delay={120} role="group" aria-label="Filter projects">
             {categories.map((c) => (
-              <Chip key={c} active={filter === c} count={c === 'All' ? projects.length : projects.filter((p) => p.kind === c).length} onClick={() => setFilter(c)}>{c}</Chip>
+              <Chip key={c} active={filter === c} count={c === 'All' ? projects.length : projects.filter((p) => kindsOf(p).includes(c)).length} onClick={() => setFilter(c)}>{c}</Chip>
             ))}
           </Reveal>
         </div>

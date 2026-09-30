@@ -77,7 +77,7 @@ export const projects = [
   {
     id: 'raseed',
     title: 'Raseed',
-    kind: 'Coded',
+    kind: ['Research', 'Designed', 'Coded'],
     year: '2026',
     tone: 'mint',
     gradient: 'meadow',
@@ -261,3 +261,6 @@ export const projects = [
 export const categories = ['All', 'Coded', 'Designed', 'Research'];
 
 export const getProject = (id) => projects.find((p) => p.id === id);
+
+// `kind` can be one type or a list, e.g. ['Research', 'Designed', 'Coded'].
+export const kindsOf = (p) => [].concat(p.kind || []);
