@@ -74,20 +74,42 @@ in components.
   `verdict` on a fork. Smart Market Watchlist is the reference layout. Never publish `[NEEDS: …]`
   placeholders from her drafts; leave those sections out until they're real.
 
-## Open items
-- `projects.js`: Raseed, Go Girl (`/work/go-girl`) and Smart Market Watchlist have full case studies
-  (the last two still `placeholder: true`, so they show "Case study in progress"). JobReady and KaamKar
-  are short stubs. `side-quest-two` is a placeholder pill waiting for a real project. All the case-study images are empty frames.
-- **About placeholders:** `currently` items are `[bracketed]` placeholders; shelf objects have no
-  photos yet: transparent PNG cut-outs in `public/about/shelf/`, `src` per item in `shelf`.
-- **Off the clock page:** not built. The design is in `Off the Clock.dc.html`. When it's built, add
+## Open items (to-do list, last updated 2026-09-30)
+Start the next session here. Ask Vaanya for whatever a line says is waiting on her.
+
+**Waiting on files from Vaanya**
+1. **Raseed research paper (PDF):** read it, link it from the Raseed case study, pull 1–2 findings into
+   "The research". Ask whether it's published, submitted or a course paper, and describe it accurately.
+2. **Economics paper on the AI bubble and funding (PDF):** relevant for HCI masters as breadth, not core.
+   Plan: a small "Writing" / "Research" entry (title, one line, PDF link), probably a pill, not a full
+   case study. Ask its status (published / submitted / coursework) first.
+3. **CV:** `public/Vaanya-Singh-CV.pdf` is missing, so "Download CV" is broken on the live site
+   (it's `assets/Vaanya-Singh-CV.pdf` in the design project).
+4. **Photos:** About portrait, and the GGC event photo (`goGirl.community.photo`).
+5. **Go Girl images**, then rebuild the Go Girl case study in the skimmable format (like Raseed/Watchlist).
+6. **Thumbnails** for the other projects (Raseed has `thumb`; others fall back to `cover`).
+
+**Copy to fill (placeholders are live on the site)**
+- Shelf: Passport story is `[One line about travel]` (`shelf` in `site.js`).
+- `currently`: every `[bracketed]` item. Ask if *Yesteryear* (Caro Claire Burke) is the current read.
+- `side-quest-two` pill: replace with a real project or remove.
+- JobReady and KaamKar are stubs with no case study.
+
+**Case studies**
+- Smart Market Watchlist is `placeholder: true`; after her user sessions add research, the turn, proof
+  and reflection (her draft has `[NEEDS: …]` for these; never publish those brackets).
+- Go Girl is still in the old wordy format and `placeholder: true`.
+- Raseed screenshots show an "Invalid Date" bug in Recent activity. When she fixes it in the app,
+  swap in new dashboard shots (desktop + `mobile-calendar`). Blur her email and any bank account numbers.
+- She asked whether Smart Market Watchlist should become a big card now it has a case study (one line:
+  remove `size: 'pill'`). Undecided.
+
+**Other**
+- Off the clock page: not built. The design is in `Off the Clock.dc.html`. When it's built, add
   `src/pages/OffTheClock.jsx` + a `/off-the-clock` route in `App.jsx`, then set
-  `offTheClock.ready = true` in `site.js`. That turns on the About buttons; until then, About shows
-  a "Page coming soon" tag.
-- **CV:** the buttons link to `/Vaanya-Singh-CV.pdf`, and `public/Vaanya-Singh-CV.pdf` needs the real file
-  (it's `assets/Vaanya-Singh-CV.pdf` in the design project).
-- **Photos:** About portrait and the GGC event photo are placeholders (`goGirl.community.photo`).
-- `public/favicon.svg` still uses the old ink tile + tangerine dot. It predates the no-ink/no-dot rules.
+  `offTheClock.ready = true` in `site.js`. Until then, About shows a "Page coming soon" tag.
+- `public/favicon.svg` still uses the old ink tile + tangerine dot, from before the no-ink/no-dot rules.
+- Git: pushes of big image sets need `http.postBuffer` raised (already set in this repo's config).
 
 ## Conventions
 - Styles live in `src/styles/global.css` (BEM-ish: `.card`, `.card__title`, `.card--pill`). No inline
