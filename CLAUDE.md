@@ -70,7 +70,7 @@ in components.
 
 - **Case studies should be skimmable, not essays** (she found them wordy). Headings carry the story;
   bodies are 1–2 sentences. Section types beyond text/image/pair/quote/facts/fork: `summary` (3 cards:
-  problem / what I built / where it is), `stat` (one big number), `list` (numbered points), `media`
+  problem / what I built / where it is), `stat` (one big number; optional `source: [{ label, href }]` renders small links under the note), `list` (numbered points), `media`
   (screen beside its point; `image.phone: true` for phone screenshots, `flip` to swap sides), and
   `verdict` on a fork, and `scatter` (loose working files on a desk, each with `x`/`y`/`w` in % and a
   rotation `r`; hover shows a caption pill, click opens the file). `brand` (a product's guidelines drawn live in its own fonts and colours: logo, palette with roles, type, rules; `BrandBoard.jsx`; Raseed and watch-me-Groww have one), `gallery` (a row of small tiles) and `shelf` (posters
@@ -79,12 +79,14 @@ in components.
   title, except when a project has no `cover` yet: then the opening summary + facts lead and the cover follows them (`problemFirst: true` forces this; Go Girl Community uses it). Never publish `[NEEDS: …]`
   placeholders from her drafts; leave those sections out until they're real.
 
-## Open items (to-do list, last updated 2026-09-30)
+## Open items (to-do list, last updated 2026-10-01)
 Start the next session here. Ask Vaanya for whatever a line says is waiting on her.
 
 **Waiting on files from Vaanya**
-1. **Raseed research paper (PDF):** read it, link it from the Raseed case study, pull 1–2 findings into
-   "The research". Ask whether it's published, submitted or a course paper, and describe it accurately.
+1. **Raseed research paper (PDF): do NOT link it yet.** The paper claims a live pgvector RAG pipeline, but
+   `backend/db/vector_store.py` in project-raseed is still a stub, so the paper must be corrected before it
+   is linked. Its author list also differs from the team named on the site. Once it's fixed, ask whether it's
+   published, submitted or a course paper, and describe it accurately.
 2. **Economics paper on the AI bubble and funding (PDF):** relevant for HCI masters as breadth, not core.
    Plan: a small "Writing" / "Research" entry (title, one line, PDF link), probably a pill, not a full
    case study. Ask its status (published / submitted / coursework) first.
@@ -101,6 +103,17 @@ Start the next session here. Ask Vaanya for whatever a line says is waiting on h
 - JobReady and KaamKar are stubs with no case study.
 
 **Case studies**
+- Raseed, waiting on the facts block from her 2026-10-01 edit list: the team (teammates' names and their
+  slices, for `role`), who pushed back that it wouldn't work in India and why (a second paragraph in "The
+  research"), the quote + role (a `quote` right after "The research"), and whether "The turn" in `summary`
+  should now count five interviews in total. Stat (with `source` links), fork verdicts, "Round two" and
+  "What's next" are done.
+- watch-me-Groww: needs a source link for the demat stat ("About 1 in 24 traded in May"). If there isn't
+  one, reword the note so trading frequency isn't read as checking frequency.
+- Go Girl Community, waiting on her: a "The problem" row (first in `summary`: why the three of them
+  started it), the number of member calls (goes into "The interviews" body and the accountability heading),
+  a role for the wellness-challenge quote, one thing that didn't work (a `text` section "What didn't work"
+  before "What it became"), and a number or named example for "landed internships and speaking slots".
 - watch-me-Groww is `placeholder: true`; after her user sessions add research, the turn, proof
   and reflection (her draft has `[NEEDS: …]` for these; never publish those brackets).
 - Go Girl is two case studies (split 2026-09-30): `go-girl-community` (a women in tech community: 1000+ women across

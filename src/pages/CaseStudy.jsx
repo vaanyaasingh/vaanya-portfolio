@@ -142,6 +142,11 @@ function Section({ s, tone, n }) {
           <div className="cs-stat__text">
             <p className="cs-stat__k">{s.k}</p>
             {s.note && <p className="cs-stat__note">{s.note}</p>}
+            {s.source && (
+              <p className="cs-stat__source">
+                {s.source.map((src) => <a key={src.href} className="label" href={src.href} target="_blank" rel="noreferrer">{src.label} ↗</a>)}
+              </p>
+            )}
           </div>
         </Reveal>
       );

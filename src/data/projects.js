@@ -47,7 +47,7 @@ export const projects = [
       { type: 'facts', items: [
         { k: 'Started', v: 'End of 2024' },
         { k: 'Role', v: 'Co-founder' },
-        { k: 'Members', v: '1000+ women' },
+        { k: 'Reach', v: '1000+ across channels' },
         { k: 'Channels', v: '30+' },
       ] },
       { type: 'text', label: 'The start', heading: 'We launched it at the Grace Hopper Celebration India.', body: [
@@ -75,6 +75,10 @@ export const projects = [
         { title: 'Mentor sessions', body: 'One-on-one calls with women working in tech, with a prep guide for each side.' },
         { title: 'Lock In & Latte and study with me', body: 'Coworking sessions, in person and online, for the accountability members asked for.' },
         { title: 'Workshops', body: 'Hands-on sessions on AI and building, for members upskilling next to a job or degree.' },
+      ] },
+      { type: 'pair', small: true, images: [
+        { src: '/work/go-girl-community/mentor-guide.webp', alt: 'Mentor’s guide: understand the participant, listen first, share guidance, stay connected', ratio: '910/1287', caption: 'The mentor’s guide says listen first, because members wanted a senior, not a professor.' },
+        { src: '/work/go-girl-community/mentee-guide.webp', alt: 'Mentee prep guide: set 2 to 3 clear goals, know your mentor, bring your materials, 48-hour cancellation policy', ratio: '910/1287', caption: 'The mentee’s guide asks for two or three questions and 48 hours’ notice, so a volunteer’s hour isn’t wasted.' },
       ] },
       { type: 'pair', small: true, images: [
         { src: '/work/go-girl-community/testimonial-amazon.webp', alt: 'Member spotlight: “It didn’t even feel like talking to a mentor, just a supportive senior who genuinely had my back.”', ratio: '4/5', caption: 'The Amazon story from the calls, later shared as a member spotlight.' },
@@ -144,7 +148,11 @@ export const projects = [
         { k: 'What we built', v: 'A five-agent copilot that reads GST notices, invoices and bank statements, and drafts what to do next.' },
         { k: 'The turn', v: 'Five interviews moved it from small businesses to their CAs. A practising CA is testing it now.' },
       ] },
-      { type: 'stat', v: '1 : 3,600', k: 'CAs to people in India: about 4 lakh for 145 crore.', note: 'ICAI says the country will need 50 lakh by 2050.' },
+      { type: 'stat', v: '39', k: 'GST-registered businesses for every CA in India: 1.65 crore businesses, about 4.26 lakh CAs.', note: 'ICAI’s president says India will need 30 lakh CAs by 2047.', source: [
+        { label: 'PIB, May 2026', href: 'https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/jul/doc202671908001.pdf' },
+        { label: 'ICAI, Dec 2024', href: 'https://icai.org/post/prc-icai-successfully-concludes-26th-council-and-25th-regional-councils-elections' },
+        { label: 'ICAI, 30 lakh by 2047', href: 'https://ai.icai.org/articles_details.php?id=253' },
+      ] },
       { type: 'text', label: 'The tension', heading: 'The work that fills a CA’s week isn’t the hard part.', body: [
         'Every client sends data in a different format, reminders go out by phone, and invoices get re-typed by hand.',
       ] },
@@ -157,6 +165,13 @@ export const projects = [
       { type: 'fork', label: 'The fork', options: [
         { title: 'Build for the business owner', body: 'Clear pain and a big market. But they trust their CA, and they won’t switch.' },
         { title: 'Build for their CA', body: 'One CA serves many businesses, and the pain is daily. It needs multi-client workspaces and a higher bar for trust.', chosen: true },
+      ], verdict: 'One CA serves many businesses, so winning one CA reaches all of them. The cost: what we built is still shaped around a single business.' },
+      { type: 'list', label: 'Round two', heading: 'Two articleship associates and a CA: what landed, and what didn’t.', items: [
+        { title: 'What landed', body: 'The compliance checklist, the deadline reminders and invoice parsing.' },
+        { title: 'What didn’t', body: 'Bank statement analysis. It wasn’t useful to any of them.' },
+        { title: 'Sorting client data', body: 'Every client sends data in a different shape. Sorting it is the most tedious part of the job.' },
+        { title: 'Questions during audits', body: 'Asking intricate questions of a client’s records takes hours. An AI that did the first pass would help.' },
+        { title: 'The back and forth', body: 'Filing means chasing clients for documents and reminders, and none of it is automated. Many clients don’t use Tally at all.' },
       ] },
       { type: 'media', flip: true, label: 'How it works', heading: 'Five agents with one job each, because tax work fails on small mistakes.', items: [
         { title: 'GST and tax' },
@@ -169,7 +184,7 @@ export const projects = [
       { type: 'fork', label: 'The trade-off', options: [
         { title: 'Keep retrieval, fight the deploy', body: 'Answers grounded in real GST circulars, but no build anyone could test.' },
         { title: 'Strip it and ship', body: 'A live build people can use. Retrieval comes back first on the roadmap.', chosen: true },
-      ] },
+      ], verdict: 'Nobody can test a build that won’t start. We gave up grounded answers for now, and retrieval is first on the roadmap.' },
       { type: 'media', label: 'The rule', heading: 'The AI drafts. A person decides.', body: [
         'Raseed never acts on a client’s money or taxes by itself. One wrong email to a client is a trust problem a CA can’t take back.',
       ], image: { src: '/work/raseed/invoices.webp', alt: 'Invoices read from uploaded PDFs, each with a Send to client button', caption: 'Sending is always a button a person presses.' } },
@@ -194,7 +209,7 @@ export const projects = [
           { name: 'Ink', hex: '#1A1D29', role: 'Text' },
         ],
         type: [
-          { name: 'Plus Jakarta Sans', font: "'Plus Jakarta Sans', sans-serif", weights: '400 – 800', use: 'The whole interface', sample: 'All filings are on track.' },
+          { name: 'Plus Jakarta Sans', font: "'Plus Jakarta Sans', sans-serif", weights: '400 to 800', use: 'The whole interface', sample: 'All filings are on track.' },
           { name: 'Hind', font: "'Hind', sans-serif", weights: '500', use: 'Devanagari beside the English', sample: 'रसीद · receipt' },
           { name: 'JetBrains Mono', font: "'JetBrains Mono', monospace", weights: '400', use: 'GSTINs, invoice numbers, chart axes', sample: 'INV-2026-0142' },
         ],
@@ -212,6 +227,9 @@ export const projects = [
       ] },
       { type: 'text', label: 'Next time', heading: 'I’d talk to a CA before writing a single agent.', body: [
         'I designed for a user I had imagined. The real one needed the same engine behind a different product.',
+      ] },
+      { type: 'text', label: 'What’s next', heading: 'Sort a CA’s client data first, then a strict auditor agent.', body: [
+        'Both came straight from round two. Neither is built yet.',
       ] },
     ],
   },
@@ -242,7 +260,7 @@ export const projects = [
       ] },
       { type: 'stat', v: '25.7 crore', k: 'Demat accounts in India, June 2026.', note: 'About 1 in 24 traded in May.' },
       { type: 'text', label: 'The tension', heading: 'Most investors check in occasionally, and seeing too much makes them worse at it.', body: [
-        'People who check their portfolio more often take less risk and earn less (Benartzi and Thaler, 1995). A watchlist that shows every red number is not neutral.',
+        'People who check their portfolio more often take less risk and earn less (Thaler, Tversky, Kahneman and Schwartz, 1997). A watchlist that shows every red number is not neutral.',
       ] },
       { type: 'fork', label: 'The first fork', options: [
         { title: 'Flat 5% alerts', body: 'Easy to explain, and what Groww does. But 5% is noise for a small-cap and an alarm for an index fund.' },
@@ -278,7 +296,7 @@ export const projects = [
           { name: 'Ink', hex: '#1F1B16', role: 'Text and the top bar' },
         ],
         type: [
-          { name: 'Sora', font: "'Sora', sans-serif", weights: '400 – 800', use: 'Everything, one family', sample: 'Ranked by significance, not alphabetically' },
+          { name: 'Sora', font: "'Sora', sans-serif", weights: '400 to 800', use: 'Everything, one family', sample: 'Ranked by significance, not alphabetically' },
           { name: 'Sora · price', font: "'Sora', sans-serif", weights: '800 · 32px', weight: 800, use: 'The one number you came for', sample: '₹2509.56' },
         ],
         rules: [
@@ -291,8 +309,8 @@ export const projects = [
         ],
       } },
       { type: 'phones', images: [
-        { src: '/work/smart-market-watchlist/feed-light.webp', ratio: '676/1456', alt: 'The attention feed in light mode: Reliance and TCS marked medium, ICICI Bank low', caption: 'Light.' },
-        { src: '/work/smart-market-watchlist/feed-dark.webp', ratio: '676/1456', alt: 'The feed in dark mode: NIFTY 50, Sensex and USD/INR above the attention list', caption: 'Dark, same family.' },
+        { src: '/work/smart-market-watchlist/feed-light.webp', ratio: '676/1456', alt: 'The attention feed in light mode: Reliance and TCS marked medium, ICICI Bank low', caption: 'Colour only where something needs your attention.' },
+        { src: '/work/smart-market-watchlist/feed-dark.webp', ratio: '676/1456', alt: 'The feed in dark mode: NIFTY 50, Sensex and USD/INR above the attention list', caption: 'Dark keeps the same three attention colours, brightened for contrast.' },
       ] },
       { type: 'text', label: 'Still open', heading: 'Raw score, or high, medium and low?', body: [
         'The question I left open is still the most interesting one in the project. It’s exactly what the sessions should answer.',

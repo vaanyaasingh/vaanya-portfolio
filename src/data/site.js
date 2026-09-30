@@ -34,11 +34,11 @@ export const offTheClock = { ready: false, to: '/off-the-clock' };
 export const experience = {
   note: 'Four internships, mostly AI. The thread: making systems people can actually trust.',
   items: [
-    { when: 'Jun 2026 – now', where: 'Bengaluru · On-site', current: true, role: 'AI Intern', org: 'Grid (Pragyaam Data Technologies)',
+    { when: 'Jun 2026 to now', where: 'Bengaluru · On-site', current: true, role: 'AI Intern', org: 'Grid (Pragyaam Data Technologies)',
       body: 'Built an evaluation framework for a LangGraph agent system in LangFuse: test cases, custom metrics, iteration on reliability. Added two new widget types to a dashboard-builder agent and a synthetic-data simulator for testing.' },
-    { when: 'Aug – Oct 2025', where: 'Bengaluru', role: 'AI Intern', org: 'SKF India',
+    { when: 'Aug to Oct 2025', where: 'Bengaluru', role: 'AI Intern', org: 'SKF India',
       body: 'Designed and built a chatbot’s backend logic and UI on Azure, and cleaned and annotated the data behind it. Sat in on a lot of leadership calls and worked closely with my manager on where the tool should go.' },
-    { when: 'Jul – Sep 2025', where: 'Remote · Tallinn', role: 'Junior Developer', org: 'Avalanche Laboratory',
+    { when: 'Jul to Sep 2025', where: 'Remote · Tallinn', role: 'Junior Developer', org: 'Avalanche Laboratory',
       body: 'Co-developed an iPad-first app in React Native, tuning responsiveness across screen sizes and testing end to end on Xcode Simulator and TestFlight before launch. Also designed the logo.' },
     { when: '2023', where: 'India', role: 'Tech Intern', org: 'Healthians',
       body: 'Prompt engineering with LangChain, back in 2023, before it had a job title.' },
@@ -48,7 +48,7 @@ export const experience = {
 export const goGirl = {
   note: 'I walked in as a volunteer teaching kids to code. I’ve stayed for every job the organisation has needed since.',
   org: {
-    meta: 'Go Girl Organisation · 2021 – now',
+    meta: 'Go Girl Organisation · 2021 to now',
     title: ['Girls’ digital education, ', 'India & Canada'],
     hats: [
       { n: '01', title: 'Volunteer teacher', note: 'Taught kids to code in Ranchi.' },
@@ -59,7 +59,7 @@ export const goGirl = {
     ],
   },
   community: {
-    meta: 'Go Girl Community · Co-founder · 2024 – now',
+    meta: 'Go Girl Community · Co-founder · 2024 to now',
     title: ['A room for Gen Z women ', 'in tech'],
     body: 'A women in tech community I co-founded with Japnit and Aqsa at the end of 2024. We host meetups and workshops, and I built the brand from nothing: name, voice, visuals and every channel.',
     photo: '', // e.g. '/about/ggc.jpg' in public/
@@ -70,7 +70,7 @@ export const goGirl = {
 export const study = {
   school: 'RV College of Engineering',
   degree: 'BE, Computer Science & Engineering',
-  when: '2023 – 2027',
+  when: '2023 to 2027',
   where: 'Bengaluru',
   courses: ['Design thinking', 'Web frameworks', 'AI & ML', 'Deep learning', 'NLP', 'Probability & stats', 'DBMS'],
   extras: [
