@@ -153,12 +153,9 @@ export const projects = [
         { label: 'ICAI, Dec 2024', href: 'https://icai.org/post/prc-icai-successfully-concludes-26th-council-and-25th-regional-councils-elections' },
         { label: 'ICAI, 30 lakh by 2047', href: 'https://ai.icai.org/articles_details.php?id=253' },
       ] },
-      { type: 'text', label: 'The tension', heading: 'The work that fills a CA’s week isn’t the hard part.', body: [
+      { type: 'text', label: 'The problem', heading: 'The work that fills a CA’s week isn’t the hard part.', body: [
         'Every client sends data in a different format, reminders go out by phone, and invoices get re-typed by hand.',
       ] },
-      { type: 'media', label: 'What it does', heading: 'A notice most owners can’t read, turned into a deadline and dated actions.', body: [
-        'Upload a GST notice and Raseed explains it, lists the documents to gather and counts down to the reply.',
-      ], image: { src: '/work/raseed/compliance.webp', alt: 'GST notice explainer with the response deadline and an action checklist', caption: 'An ASMT-10 notice, explained.' } },
       { type: 'text', label: 'The research', heading: 'I thought a CA would never want AI. The first interview proved me wrong.', body: [
         'A practising CA put it plainly: a business won’t replace its CA, but a CA buried in routine work would pay to serve more clients. The second, Suhani Jain, wanted AI to do a lot but didn’t trust today’s tools with client data.',
       ] },
@@ -166,13 +163,6 @@ export const projects = [
         { title: 'Build for the business owner', body: 'Clear pain and a big market. But they trust their CA, and they won’t switch.' },
         { title: 'Build for their CA', body: 'One CA serves many businesses, and the pain is daily. It needs multi-client workspaces and a higher bar for trust.', chosen: true },
       ], verdict: 'One CA serves many businesses, so winning one CA reaches all of them. The cost: what we built is still shaped around a single business.' },
-      { type: 'list', label: 'Round two', heading: 'Two articleship associates and a CA: what landed, and what didn’t.', items: [
-        { title: 'What landed', body: 'The compliance checklist, the deadline reminders and invoice parsing.' },
-        { title: 'What didn’t', body: 'Bank statement analysis. It wasn’t useful to any of them.' },
-        { title: 'Sorting client data', body: 'Every client sends data in a different shape. Sorting it is the most tedious part of the job.' },
-        { title: 'Questions during audits', body: 'Asking intricate questions of a client’s records takes hours. An AI that did the first pass would help.' },
-        { title: 'The back and forth', body: 'Filing means chasing clients for documents and reminders, and none of it is automated. Many clients don’t use Tally at all.' },
-      ] },
       { type: 'media', flip: true, label: 'How it works', heading: 'Five agents with one job each, because tax work fails on small mistakes.', items: [
         { title: 'GST and tax' },
         { title: 'Invoices', body: 'Reads uploaded invoices and generates GST-compliant ones.' },
@@ -181,11 +171,19 @@ export const projects = [
         { title: 'Communication', body: 'Writes drafts. Nothing is sent until a person confirms.' },
         { title: 'An orchestrator', body: 'Links a GST notice to the missing invoice and the bank entry behind it.' },
       ], image: { src: '/work/raseed/finance.webp', alt: 'Cash flow health score with inflow, outflow and anomalies', caption: 'Cash flow, scored and explained in plain language.' } },
-      { type: 'fork', label: 'The trade-off', options: [
-        { title: 'Keep retrieval, fight the deploy', body: 'Answers grounded in real GST circulars, but no build anyone could test.' },
-        { title: 'Strip it and ship', body: 'A live build people can use. Retrieval comes back first on the roadmap.', chosen: true },
-      ], verdict: 'Nobody can test a build that won’t start. We gave up grounded answers for now, and retrieval is first on the roadmap.' },
-      { type: 'media', label: 'The rule', heading: 'The AI drafts. A person decides.', body: [
+      { type: 'media', label: 'What it does', heading: 'A notice most owners can’t read, turned into a deadline and dated actions.', body: [
+        'Upload a GST notice and Raseed explains it, lists the documents to gather and counts down to the reply.',
+      ], items: [
+        { title: 'Plain Hindi first', body: 'The notice retold in everyday Hindi, with the tax terms left in English.' },
+        { title: 'A confidence score', body: 'Every analysis says how sure it is, so nobody takes it on faith.' },
+        { title: 'What it’s about', body: 'The section, the mismatch and the rupee amount, in one sentence.' },
+        { title: 'The deadline, at full size', body: 'Days left, or days overdue, is the largest thing on the screen.' },
+        { title: 'A dated checklist', body: 'Each action has a priority and its own countdown, ticked off one at a time.' },
+        { title: 'Documents to gather', body: 'The exact returns and months to pull.' },
+      ], image: { src: '/work/raseed/compliance.webp', alt: 'GST notice explainer with the response deadline and an action checklist', caption: 'An ASMT-10 scrutiny notice, broken into what it says, when it’s due and what to do.', pins: [
+        { x: 91, y: 22 }, { x: 46.5, y: 30.7 }, { x: 68.5, y: 40.5 }, { x: 47, y: 64 }, { x: 90, y: 42.5 }, { x: 27, y: 86 },
+      ] } },
+      { type: 'media', flip: true, label: 'The rule', heading: 'The AI drafts. A person decides.', body: [
         'Raseed never acts on a client’s money or taxes by itself. One wrong email to a client is a trust problem a CA can’t take back.',
       ], image: { src: '/work/raseed/invoices.webp', alt: 'Invoices read from uploaded PDFs, each with a Send to client button', caption: 'Sending is always a button a person presses.' } },
       { type: 'phones', images: [
@@ -224,6 +222,17 @@ export const projects = [
       } },
       { type: 'text', label: 'What broke', heading: 'The deploy, and then the user.', body: [
         'Five agents and OCR on Cloud Run meant weeks of startup crashes; today’s build came from removing things. And the pivot came late, so it’s still shaped around one business, not a CA with many clients.',
+      ] },
+      { type: 'fork', label: 'The trade-off', options: [
+        { title: 'Keep retrieval, fight the deploy', body: 'Answers grounded in real GST circulars, but no build anyone could test.' },
+        { title: 'Strip it and ship', body: 'A live build people can use. Retrieval comes back first on the roadmap.', chosen: true },
+      ], verdict: 'Nobody can test a build that won’t start. We gave up grounded answers for now, and retrieval is first on the roadmap.' },
+      { type: 'list', label: 'Round two', heading: 'Two articleship associates and a CA: what landed, and what didn’t.', items: [
+        { title: 'What landed', body: 'The compliance checklist, the deadline reminders and invoice parsing.' },
+        { title: 'What didn’t', body: 'Bank statement analysis. It wasn’t useful to any of them.' },
+        { title: 'Sorting client data', body: 'Every client sends data in a different shape. Sorting it is the most tedious part of the job.' },
+        { title: 'Questions during audits', body: 'Asking intricate questions of a client’s records takes hours. An AI that did the first pass would help.' },
+        { title: 'The back and forth', body: 'Filing means chasing clients for documents and reminders, and none of it is automated. Many clients don’t use Tally at all.' },
       ] },
       { type: 'text', label: 'Next time', heading: 'I’d talk to a CA before writing a single agent.', body: [
         'I designed for a user I had imagined. The real one needed the same engine behind a different product.',

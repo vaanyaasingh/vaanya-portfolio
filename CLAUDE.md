@@ -21,7 +21,8 @@ in components.
 - **Headlines:** tight (lh .92, −.025em). One italic turn per headline, with at most two treatments.
   `boxed` = lilac fill + italic, `circled` = tangerine ring.
 - **Wordmark:** "Vaanya *Singh*" in Newsreader Light, opsz 72, −.02em. The surname is italic and turns
-  upright on hover. No dot and no logo mark. The only source is `src/components/Wordmark.jsx`.
+  upright on hover. Both styles sit in one grid cell (swapped with `visibility`), so the hover never changes
+  the wordmark's width or moves the nav. No dot and no logo mark. The only source is `src/components/Wordmark.jsx`.
 - **Colour:** cream paper + aubergine ink `#1D1A2B` (never pure black). Pastels (peach, mint, lilac,
   rose, butter, sky) are for gradients and card fills. Saturated accents (tangerine, vermilion, violet,
   moss) are only for dots, rings, full stops and status.
@@ -71,7 +72,7 @@ in components.
 - **Case studies should be skimmable, not essays** (she found them wordy). Headings carry the story;
   bodies are 1–2 sentences. Section types beyond text/image/pair/quote/facts/fork: `summary` (3 cards:
   problem / what I built / where it is), `stat` (one big number; optional `source: [{ label, href }]` renders small links under the note), `list` (numbered points), `media`
-  (screen beside its point; `image.phone: true` for phone screenshots, `flip` to swap sides), and
+  (screen beside its point; `image.phone: true` for phone screenshots, `flip` to swap sides; `image.pins: [{ x, y }]` in % puts numbered markers on the screen that match its numbered `items`, Avika-style, and keeps the screen sticky beside them), and
   `verdict` on a fork, and `scatter` (loose working files on a desk, each with `x`/`y`/`w` in % and a
   rotation `r`; hover shows a caption pill, click opens the file). `brand` (a product's guidelines drawn live in its own fonts and colours: logo, palette with roles, type, rules; `BrandBoard.jsx`; Raseed and watch-me-Groww have one), `gallery` (a row of small tiles) and `shelf` (posters
   on a dock with a description pill above it: `PosterShelf.jsx`, sharing `lib/useDock.js` with About's shelf). Use one scatter instead of many image
@@ -103,6 +104,9 @@ Start the next session here. Ask Vaanya for whatever a line says is waiting on h
 - JobReady and KaamKar are stubs with no case study.
 
 **Case studies**
+- Raseed was restructured 2026-10-01 after the Case Study Bible + the Avika Behance case study: problem →
+  research → fork → how it works → annotated notice screen → rule → phones → brand → what broke → trade-off
+  → round two (proof) → next time → what's next. Scorecard 19/25; the facts below are worth about +4.
 - Raseed, waiting on the facts block from her 2026-10-01 edit list: the team (teammates' names and their
   slices, for `role`), who pushed back that it wouldn't work in India and why (a second paragraph in "The
   research"), the quote + role (a `quote` right after "The research"), and whether "The turn" in `summary`

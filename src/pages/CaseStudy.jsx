@@ -210,9 +210,15 @@ function Section({ s, tone, n }) {
     case 'media':
       // Screen on one side, its point on the other.
       return (
-        <div className={'cs-media' + (s.flip ? ' is-flip' : '') + (s.image.phone ? ' is-phone' : '')}>
+        <div className={'cs-media' + (s.flip ? ' is-flip' : '') + (s.image.phone ? ' is-phone' : '') + (s.image.pins ? ' is-pinned' : '')}>
           <Reveal as="figure" className="cs-figure cs-media__fig">
-            <Media src={s.image.src} alt={s.image.alt} tone={tone} ratio={s.image.ratio || '16/10'} radius={s.image.phone ? '28px' : 'var(--radius-lg)'} />
+            <div className="cs-pins">
+              <Media src={s.image.src} alt={s.image.alt} tone={tone} ratio={s.image.ratio || '16/10'} radius={s.image.phone ? '28px' : 'var(--radius-lg)'} />
+              {/* Numbered markers on the screen, matching the numbered notes beside it */}
+              {(s.image.pins || []).map((pin, i) => (
+                <span key={i} className="cs-pin" style={{ '--x': pin.x + '%', '--y': pin.y + '%', '--i': i }} aria-hidden="true">{pad(i + 1)}</span>
+              ))}
+            </div>
             {s.image.caption && <figcaption>{s.image.caption}</figcaption>}
           </Reveal>
           <Reveal delay={120} className="cs-media__text">
@@ -220,8 +226,13 @@ function Section({ s, tone, n }) {
             {s.heading && <h2 className="h2">{s.heading}</h2>}
             {(s.body || []).map((para, i) => <p key={i}>{para}</p>)}
             {s.items && (
-              <ul className="cs-media__items">
-                {s.items.map((it) => <li key={it.title}><span className="cs-list__title">{it.title}</span>{it.body && <span className="cs-list__body">{it.body}</span>}</li>)}
+              <ul className={'cs-media__items' + (s.image.pins ? ' is-pinned' : '')}>
+                {s.items.map((it, i) => (
+                  <li key={it.title}>
+                    {s.image.pins && <span className="cs-pin cs-pin--key" aria-hidden="true">{pad(i + 1)}</span>}
+                    <span><span className="cs-list__title">{it.title}</span>{it.body && <span className="cs-list__body">{it.body}</span>}</span>
+                  </li>
+                ))}
               </ul>
             )}
           </Reveal>

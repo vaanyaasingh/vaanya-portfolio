@@ -76,8 +76,12 @@ main{position:relative;z-index:1}
    Wordmark · Tag · Chip · Button · Field · Media
    ========================================================================== */
 .wordmark{font-family:var(--font-serif);font-weight:300;font-size:23px;font-variation-settings:'opsz' 72;letter-spacing:-.02em;line-height:1;white-space:nowrap}
-.wordmark__sur{font-style:italic}
-a:hover .wordmark__sur{font-style:normal}
+/* Italic and upright share one grid cell, so the swap on hover never changes the wordmark's width */
+.wordmark__sur{display:inline-grid;font-style:normal}
+.wordmark__sur>span{grid-area:1/1}
+.wordmark__sur>span:first-child{font-style:italic}
+.wordmark__sur>span:last-child,a:hover .wordmark__sur>span:first-child{visibility:hidden}
+a:hover .wordmark__sur>span:last-child{visibility:visible}
 
 .tag{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:999px;border:1px solid transparent;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;color:var(--ink-1)}
 .tag--line{border-color:var(--border-hair)}
@@ -565,7 +569,7 @@ a:hover>.roll>span:last-child{transform:none}
 .cs-stat__note{font-style:italic;color:var(--ink-2)}
 .cs-stat__source{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:4px}
 .cs-stat__source a{text-decoration:none;transition:color var(--dur-fast) ease}
-.cs-stat__source a:hover{color:var(--ink)}
+.cs-stat__source a:hover{color:var(--ink-1)}
 /* Numbered points */
 .cs-list{display:flex;flex-direction:column}
 .cs-list li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;padding:16px 0;border-top:1px solid var(--border-hair)}
@@ -583,6 +587,14 @@ a:hover>.roll>span:last-child{transform:none}
 .cs-media__items{display:flex;flex-direction:column;margin-top:4px}
 .cs-media__items li{padding:12px 0;border-top:1px solid var(--border-hair)}
 .cs-media__items .cs-list__title{font-size:19px}
+.cs-media__items.is-pinned li{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;align-items:start}
+.cs-pins{position:relative}
+/* Annotated screens: the screen stays put while its numbered notes scroll past */
+.cs-media.is-pinned{align-items:start}
+.cs-media.is-pinned .cs-media__fig{position:sticky;top:120px}
+.cs-pin{position:absolute;left:var(--x);top:var(--y);display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:var(--radius-pill);background:var(--paper-0);border:1.5px solid var(--tangerine);box-shadow:var(--shadow-soft);font-family:var(--font-mono);font-size:11px;letter-spacing:.02em;color:var(--ink-1);transform:translate(-50%,-50%) scale(.4);opacity:0;transition:transform var(--dur-base) var(--ease-spring) calc(300ms + var(--i) * 90ms),opacity var(--dur-fast) var(--ease-out) calc(300ms + var(--i) * 90ms)}
+.reveal.is-in .cs-pin{transform:translate(-50%,-50%);opacity:1}
+.cs-pin--key{position:static;transform:none;opacity:1;width:26px;height:26px;font-size:10px;margin-top:1px;transition:none}
 /* A row of phone screens */
 .cs-phones{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,300px));justify-content:center;gap:clamp(16px,3vw,40px)}
 .cs-phones__fig:nth-child(2){margin-top:clamp(24px,4vw,56px)}
@@ -633,6 +645,7 @@ a:hover>.roll>span:last-child{transform:none}
   .cs-media,.cs-media.is-phone,.cs-media.is-phone.is-flip{grid-template-columns:minmax(0,1fr)}
   .cs-media.is-flip .cs-media__fig{order:0}
   .cs-media.is-phone .cs-media__fig{max-width:300px}
+  .cs-media.is-pinned .cs-media__fig{position:static}
   .cs-stat{grid-template-columns:minmax(0,1fr);gap:12px}
 }
 @media (max-width:760px){
@@ -694,5 +707,6 @@ a:hover>.roll>span:last-child{transform:none}
   *,*::before,*::after{animation-duration:1ms!important;animation-delay:0ms!important;animation-iteration-count:1!important;transition-duration:1ms!important;transition-delay:0ms!important}
   .bg__layer,.contact__bg,.board__bg{animation:none!important}
   .reveal,.split__word{opacity:1;transform:none}
+  .cs-pins .cs-pin{opacity:1;transform:translate(-50%,-50%)}
   .hero__scroll i::after{animation:none}
 }
