@@ -235,6 +235,8 @@ function Section({ s, tone, n }) {
                 ))}
               </ul>
             )}
+            {/* A fork that follows from this point, set in the empty column beside a tall screen */}
+            {s.then && <div className="cs-media__then"><Section s={s.then} tone={tone} n={n + 1} /></div>}
           </Reveal>
         </div>
       );
@@ -284,9 +286,11 @@ export default function CaseStudy() {
 
       {p.sections.map((s, k) => {
         if (['text', 'fork', 'list', 'media', 'scatter', 'shelf', 'gallery', 'brand'].includes(s.type)) n++;
+        const cur = n;
+        if (s.then) n++; // the nested fork takes the next number
         return (
           <Fragment key={k}>
-            <Section s={s} tone={p.tone} n={n} />
+            <Section s={s} tone={p.tone} n={cur} />
             {problemFirst && k === lead && cover}
           </Fragment>
         );

@@ -277,11 +277,12 @@ export const projects = [
       ], verdict: '“Unusual for this stock” is what people mean by “something happened”. The reason line on every alert does the explaining.' },
       { type: 'media', label: 'The trust call', heading: 'Rules rank. The AI only writes the sentence.', body: [
         'In money, an alert you can’t explain is one you can’t trust. If the AI fails, times out or drifts toward advice, a plain template sentence takes its place.',
-      ], image: { src: '/work/smart-market-watchlist/detail.webp', ratio: '676/1456', phone: true, alt: 'Reliance detail screen: “Since you last checked: moved up 1.9%, driven by a statistically unusual price move”', caption: 'Since you last checked, with its reason.' } },
-      { type: 'fork', label: 'The fake crash', options: [
-        { title: 'Show the raw price change', body: 'Simple. But a 1:10 split looks like a 90% crash.' },
-        { title: 'Detect splits and bonuses', body: 'No false alarms, at the cost of more data and more edge cases.', chosen: true },
-      ], verdict: 'For a nervous new investor, a fake crash is the worst possible alert.' },
+      ], image: { src: '/work/smart-market-watchlist/detail.webp', ratio: '676/1456', phone: true, alt: 'Reliance detail screen: “Since you last checked: moved up 1.9%, driven by a statistically unusual price move”', caption: 'Since you last checked, with its reason.' },
+        // The next decision sits beside the tall screen instead of below it
+        then: { type: 'fork', label: 'The fake crash', options: [
+          { title: 'Show the raw price change', body: 'Simple. But a 1:10 split looks like a 90% crash.' },
+          { title: 'Detect splits and bonuses', body: 'No false alarms, at the cost of more data and more edge cases.', chosen: true },
+        ], verdict: 'For a nervous new investor, a fake crash is the worst possible alert.' } },
       { type: 'media', flip: true, label: 'The build', heading: 'Built for the investor who’s already nervous.', items: [
         { title: 'Ranked, then quiet', body: 'Ordered by how unusual each move is, not by name. Only the top few changes make the feed.' },
         { title: 'Colour means attention', body: 'Medium is amber and low is olive. Nothing else on the card gets a colour.' },

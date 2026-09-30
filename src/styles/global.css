@@ -587,6 +587,11 @@ a:hover>.roll>span:last-child{transform:none}
 .cs-media__items{display:flex;flex-direction:column;margin-top:4px}
 .cs-media__items li{padding:12px 0;border-top:1px solid var(--border-hair)}
 .cs-media__items .cs-list__title{font-size:19px}
+.cs-media__then{margin-top:clamp(24px,4vw,48px)}
+.cs-media__then .cs-text{grid-template-columns:minmax(0,1fr);gap:16px}
+/* Keep the fork's own sizes rather than the column's lead size */
+.cs-media__then p{font-size:inherit;line-height:inherit}
+.cs-media__then .cs-fork__verdict{font-size:19px;line-height:1.45}
 .cs-media__items.is-pinned li{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;align-items:start}
 .cs-pins{position:relative}
 /* Annotated screens: the screen stays put while its numbered notes scroll past */

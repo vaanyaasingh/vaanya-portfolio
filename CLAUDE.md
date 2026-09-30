@@ -72,7 +72,7 @@ in components.
 - **Case studies should be skimmable, not essays** (she found them wordy). Headings carry the story;
   bodies are 1–2 sentences. Section types beyond text/image/pair/quote/facts/fork: `summary` (3 cards:
   problem / what I built / where it is), `stat` (one big number; optional `source: [{ label, href }]` renders small links under the note), `list` (numbered points), `media`
-  (screen beside its point; `image.phone: true` for phone screenshots, `flip` to swap sides; `image.pins: [{ x, y }]` in % puts numbered markers on the screen that match its numbered `items`, Avika-style, and keeps the screen sticky beside them), and
+  (screen beside its point; `image.phone: true` for phone screenshots, `flip` to swap sides; `image.pins: [{ x, y }]` in % puts numbered markers on the screen that match its numbered `items`, Avika-style, and keeps the screen sticky beside them; `then: { type: 'fork', … }` sets a fork in the text column beside a tall phone screen instead of leaving empty space under the text, keeping its own number), and
   `verdict` on a fork, and `scatter` (loose working files on a desk, each with `x`/`y`/`w` in % and a
   rotation `r`; hover shows a caption pill, click opens the file). `brand` (a product's guidelines drawn live in its own fonts and colours: logo, palette with roles, type, rules; `BrandBoard.jsx`; Raseed and watch-me-Groww have one), `gallery` (a row of small tiles) and `shelf` (posters
   on a dock with a description pill above it: `PosterShelf.jsx`, sharing `lib/useDock.js` with About's shelf). Use one scatter instead of many image
