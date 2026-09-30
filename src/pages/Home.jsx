@@ -8,6 +8,7 @@ import { RevealWord } from '../components/RevealWord.jsx';
 import { ProjectCard } from '../components/ProjectCard.jsx';
 import { Reveal, SplitHeading } from '../components/Reveal.jsx';
 import { Contact } from '../components/Contact.jsx';
+import { Experience, GoGirl, Study } from '../components/Experience.jsx';
 import { projects, categories } from '../data/projects.js';
 import { useTransition } from '../lib/transition.jsx';
 import { hasFinePointer, prefersReducedMotion } from '../lib/motion.js';
@@ -62,19 +63,19 @@ export default function Home() {
       <section className="hero wrap">
         <HeroDots />
         <div className="hero__tags rise" style={{ '--d': '0ms' }}>
-          <Tag tone="ink">HCI Masters · Portfolio</Tag>
+          <Tag tone="ink">Portfolio · Bengaluru</Tag>
           <Tag>{new Date().getFullYear()}</Tag>
         </div>
         <MixedHeadline
           size="clamp(56px,10vw,160px)"
           delay={80}
           className="hero__title"
-          parts={['Designing', { text: 'the', style: 'boxed' }, { text: 'gentle', style: 'italic' }, { br: true }, 'parts of', { text: 'computing', style: 'circled' }]}
+          parts={['An engineer', { br: true }, 'who', { text: 'starts', style: 'italic' }, 'with', { text: 'people', style: 'circled' }]}
         />
         <div className="hero__foot">
           <p className="hero__lede rise" style={{ '--d': '520ms' }}>
-            I’m Vaanya — I study how people <RevealWord tone="lilac" caption="Field study · 2025">touch</RevealWord> interfaces,
-            and I build the ones they <RevealWord tone="peach" caption="Raseed · 2025">keep</RevealWord>.
+            I’m Vaanya. I build products in Bengaluru, and I <RevealWord tone="lilac" caption="Raseed · 5 interviews">talk</RevealWord> to the
+            people who’ll use them before I <RevealWord tone="peach" caption="Watchlist · Groww CODE 2026">write the code</RevealWord>.
           </p>
           <div className="hero__cta rise" style={{ '--d': '620ms' }}>
             <Button arrow onClick={() => scrollTo('#work', { offset: -90 })}>See the work</Button>
@@ -102,9 +103,13 @@ export default function Home() {
             <Reveal key={p.id} className={'grid__cell' + (p.size === 'pill' ? ' is-pill' : '')} delay={(i % 2) * 110}>
               <ProjectCard project={p} index={projects.indexOf(p) + 1} pill={p.size === 'pill'} />
             </Reveal>
-          )) : <p className="grid__empty">Nothing here yet — more soon.</p>}
+          )) : <p className="grid__empty">Nothing here yet. More soon.</p>}
         </div>
       </section>
+
+      <Experience label="01 · Experience" />
+      <GoGirl label="02 · Go Girl" />
+      <Study label="03 · Study" />
 
       <Contact />
     </>

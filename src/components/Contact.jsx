@@ -38,7 +38,7 @@ export function Contact({ asHero = false }) {
         setStatus(res.ok ? 'sent' : 'error');
       } catch { setStatus('error'); }
     } else if (site.email) {
-      const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
+      const body = encodeURIComponent(`${form.message}\n\nFrom ${form.name} (${form.email})`);
       window.location.href = `mailto:${site.email}?subject=${encodeURIComponent('Hello from ' + form.name)}&body=${body}`;
       setStatus('sent');
     } else setStatus('error');
@@ -52,7 +52,7 @@ export function Contact({ asHero = false }) {
         <div className="contact__lede">
           <SplitHeading as={asHero ? 'h1' : 'h2'} className="contact__title" parts={['Say', { text: 'hello', style: 'italic' }, { text: '.', style: 'dot', glue: true }]} />
           <Reveal as="p" delay={150} className="contact__note">
-            Admissions committees, collaborators, curious people — I read everything, and I write back.
+            Admissions committees, collaborators, curious people. I read everything, and I write back.
           </Reveal>
           <Reveal delay={250} className="contact__links">
             {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}
@@ -64,7 +64,7 @@ export function Contact({ asHero = false }) {
           {status === 'sent' ? (
             <div className="contact__thanks" role="status">
               <span className="contact__thanks-mark" aria-hidden="true">✳</span>
-              <p>Thank you{form.name ? ', ' + form.name.split(' ')[0] : ''} — I’ll write back soon.</p>
+              <p>Thank you{form.name ? ', ' + form.name.split(' ')[0] : ''}. I’ll write back soon.</p>
               <Button variant="ghost" onClick={() => { setForm({ name: '', email: '', message: '', company: '' }); setStatus('idle'); }}>Send another</Button>
             </div>
           ) : (

@@ -1,6 +1,7 @@
 /* Fixed mesh-gradient field under the whole site. All four presets are stacked
    and cross-fade when the page changes; only the active one drifts. Grain sits
-   on top of the gradient (not over content, so text stays crisp and scroll stays cheap). */
+   on top of the gradient (not over content, so text stays crisp and scroll stays cheap).
+   A fixed 1cm hairline grid sits between the two; it doesn't drift. */
 const VARIANTS = ['dawn', 'dusk', 'meadow', 'night'];
 
 export function Background({ variant = 'dawn' }) {
@@ -9,6 +10,7 @@ export function Background({ variant = 'dawn' }) {
       {VARIANTS.map((v) => (
         <div key={v} className={'bg__layer' + (v === variant ? ' is-active' : '')} style={{ background: `var(--gradient-${v})` }} />
       ))}
+      <div className="bg__grid" />
       <div className="bg__grain" />
     </div>
   );

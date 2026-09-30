@@ -2,9 +2,11 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { TLink } from './TLink.jsx';
 import { Wordmark } from './Wordmark.jsx';
+import { Button } from './Button.jsx';
 import { site } from '../data/site.js';
 import { useTransition } from '../lib/transition.jsx';
 
+const linkedIn = site.socials.find((s) => s.label === 'LinkedIn');
 const currentOf = (path) => (path.startsWith('/about') ? '/about' : path.startsWith('/contact') ? '/contact' : path === '/' || path.startsWith('/work') ? '/' : null);
 
 /* Floating glass pill. Hides on scroll down, returns on scroll up.
@@ -59,7 +61,7 @@ export function SiteNav() {
     <>
       <header className={'nav-wrap' + (hidden && !open ? ' is-hidden' : '') + (scrolled ? ' is-scrolled' : '') + (open ? ' is-menu' : '')}>
         <nav className="nav" aria-label="Primary">
-          <TLink to="/" className="nav__brand" aria-label="Vaanya Singh — home"><Wordmark /></TLink>
+          <TLink to="/" className="nav__brand" aria-label="Vaanya Singh, home"><Wordmark /></TLink>
           <div className="nav__links">
             <span ref={pill} className="nav__pill" aria-hidden="true" />
             {site.nav.map((l) => (
@@ -69,7 +71,7 @@ export function SiteNav() {
               </TLink>
             ))}
           </div>
-          <span className="nav__status"><span className="status-dot" />{site.status}</span>
+          <Button href={linkedIn.href} size="sm" arrow magnetic={false} className="nav__social">{linkedIn.label}</Button>
           <button type="button" className={'nav__menu' + (open ? ' is-open' : '')} aria-expanded={open} aria-controls="menu" onClick={() => setOpen((o) => !o)}>
             <span>{open ? 'Close' : 'Menu'}</span>
             <span className="nav__burger" aria-hidden="true"><i /><i /></span>

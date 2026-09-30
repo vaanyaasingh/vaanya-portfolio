@@ -40,22 +40,46 @@ in components.
 ## Site decisions Vaanya asked for (not in the design system)
 - **Home grid:** an equal two-column grid. Big cards come first; projects with `size: 'pill'` render
   as compact pills the same width, after the big ones. There's no staggered 7/5 layout.
+  Six projects in total: 2 big (Go Girl, Raseed) + 4 pills (Watchlist, JobReady, KaamKar and one
+  placeholder side quest). She finds more big cards bulky; only add more if she asks.
+- **Work page (Home) order:** hero → marquee → Selected work grid → 01 Experience → 02 Go Girl →
+  03 Study → Say hello. All three live in `src/components/Experience.jsx`; they moved off About.
+- **Background grid:** a fixed 1cm hairline grid (`.bg__grid`, ink at .06) between the mesh and the
+  grain, on every page.
 - **Say hello:** a rounded dusk-gradient card with ink text and the form on a paper card. It is not
   a dark panel.
-- **Nav:** only Work · About · Contact. **Off the clock is deliberately NOT in the nav**, even though
+- **Nav:** only Work · About · Contact, plus a "LinkedIn ↗" button on the right (replaced the
+  "Open to HCI collaborations" status pill; hidden under 1100px, where the menu has socials).
+  **Off the clock is deliberately NOT in the nav**, even though
   the design file lists it there. Decided 2026-09-30: the nav stays about the work, and Off the clock
   is a discovery you reach from About (intro button + "The rest of me is off the clock." outro).
 - **Wordmark in the nav:** `.nav__brand` is a 40px inline-flex box and the wordmark uses
   line-height 1.3, the same as `.nav__link`, so it centres optically with the links. Don't set it
   back to line-height 1.
-- **About:** all copy is in `src/data/site.js` (`experience`, `goGirl`, `study`, `offClockTeaser`).
-  Section order: intro → 01 Experience → 02 Go Girl (lilac + peach panels) → 03 Study → outro.
+- **About:** all copy is in `src/data/site.js` (`aboutIntro`, `shelf`, `currently`, `puzzle`, `offClockTeaser`).
+  Section order: intro → 01 The shelf (`Shelf.jsx`: one plank with all objects standing on it,
+  macOS-dock magnify on hover (objects scale in place with transforms, nothing slides; only items
+  with a photo `src` are shown), museum-style label underneath, then a full-width "Currently…" card) →
+  02 Solve me (4×4 hobby sudoku, `Puzzle.jsx`) → outro. The shelf sits on the page (no card);
+  the puzzle is a meadow board. Both come from
+  `Off the Clock.dc.html` (1b, 1c, 1d). She wants motion here, not a static page: the shelf auto-plays
+  its stories until someone touches it, and the puzzle pops, shakes and ripples.
 - **Cursor:** vermilion dot/ring, lilac labelled disc. Frame-rate-independent follow, `rate = 30`
   in `Cursor.jsx` (~35ms lag). Keep it snappy.
 
+- **Case studies should be skimmable, not essays** (she found them wordy). Headings carry the story;
+  bodies are 1–2 sentences. Section types beyond text/image/pair/quote/facts/fork: `summary` (3 cards:
+  problem / what I built / where it is), `stat` (one big number), `list` (numbered points), `media`
+  (screen beside its point; `image.phone: true` for phone screenshots, `flip` to swap sides), and
+  `verdict` on a fork. Smart Market Watchlist is the reference layout. Never publish `[NEEDS: …]`
+  placeholders from her drafts; leave those sections out until they're real.
+
 ## Open items
-- `projects.js`: "Small Machines" (from the design project's sample data) and the two pill
-  placeholders (`side-project-one`, `side-project-two`) still need real content from Vaanya.
+- `projects.js`: Raseed, Go Girl (`/work/go-girl`) and Smart Market Watchlist have full case studies
+  (the last two still `placeholder: true`, so they show "Case study in progress"). JobReady and KaamKar
+  are short stubs. `side-quest-two` is a placeholder pill waiting for a real project. All the case-study images are empty frames.
+- **About placeholders:** `currently` items are `[bracketed]` placeholders; shelf objects have no
+  photos yet: transparent PNG cut-outs in `public/about/shelf/`, `src` per item in `shelf`.
 - **Off the clock page:** not built. The design is in `Off the Clock.dc.html`. When it's built, add
   `src/pages/OffTheClock.jsx` + a `/off-the-clock` route in `App.jsx`, then set
   `offTheClock.ready = true` in `site.js`. That turns on the About buttons; until then, About shows

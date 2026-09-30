@@ -8,7 +8,7 @@ import { hasFinePointer, prefersReducedMotion } from '../lib/motion.js';
    `pill` is the compact variant for smaller projects: one row, no image. */
 export function ProjectCard({ project, index, pill = false }) {
   const ref = useRef(null);
-  const { id, title, kind, year, role, tone, cover } = project;
+  const { id, title, kind, year, role, tone, cover, thumb } = project;
 
   const move = (e) => {
     if (!hasFinePointer() || prefersReducedMotion()) return;
@@ -51,7 +51,7 @@ export function ProjectCard({ project, index, pill = false }) {
         <span className="card__tags">{kind && <Tag tone="paper">{kind}</Tag>}{year && <Tag>{year}</Tag>}</span>
         <span className="card__index">{String(index).padStart(2, '0')}</span>
       </span>
-      <Media src={cover} alt="" tone={tone} ratio="4/3" label="project image" className="card__media" />
+      <Media src={thumb || cover} alt="" tone={tone} ratio="4/3" label="project image" className="card__media" />
       <span className="card__bottom">
         <span>
           <span className="card__title">{title}</span>
