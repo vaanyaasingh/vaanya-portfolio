@@ -20,7 +20,7 @@ export const site = {
 
 // Intro under the headline. `word` gets the hover polaroid (RevealWord) with `caption`.
 export const aboutIntro = [
-  { text: 'I’ve always loved building — the small thrill of code that finally runs. But I’ve loved the part after just as much: shaping a product until it feels good in someone’s hands, so that using it leaves them a little happier than before.' },
+  { text: 'I’ve always loved building: the small thrill of code that finally runs. But I’ve loved the part after just as much: shaping a product until it feels good in someone’s hands, so that using it leaves them a little happier than before.' },
   { text: 'So I stopped choosing. If products exist for the people who use them, then how they’re built and how they feel are the same question. I work in the', word: 'mid-way', caption: 'Where I live', after: ', where both get to matter.' },
 ];
 
@@ -61,9 +61,9 @@ export const goGirl = {
   community: {
     meta: 'Go Girl Community · Co-founder · 2024 – now',
     title: ['A room for Gen Z women ', 'in tech'],
-    body: 'At the end of 2024, Japnit, Aqsa and I started the community we wished we’d had. I built the brand from nothing: name, voice, visuals and every channel it lives on.',
+    body: 'A women in tech community I co-founded with Japnit and Aqsa at the end of 2024. We host meetups and workshops, and I built the brand from nothing: name, voice, visuals and every channel.',
     photo: '', // e.g. '/about/ggc.jpg' in public/
-    stats: [{ v: '~700', k: 'Newsletter readers' }, { v: '~300', k: 'On WhatsApp' }],
+    stats: [{ v: '1000+', k: 'Women in the community' }, { v: '30+', k: 'Channels' }],
   },
 };
 

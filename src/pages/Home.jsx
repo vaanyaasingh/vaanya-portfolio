@@ -48,7 +48,7 @@ function HeroDots() {
   );
 }
 
-/* Big cards first, pills after — both in the same equal two-column grid. */
+/* Big cards first, pills after, in the same equal three-column grid. */
 const layout = (list) => [...list.filter((p) => p.size !== 'pill'), ...list.filter((p) => p.size === 'pill')];
 
 export default function Home() {
@@ -75,7 +75,7 @@ export default function Home() {
         <div className="hero__foot">
           <p className="hero__lede rise" style={{ '--d': '520ms' }}>
             I’m Vaanya. I build products in Bengaluru, and I <RevealWord tone="lilac" caption="Raseed · 5 interviews">talk</RevealWord> to the
-            people who’ll use them before I <RevealWord tone="peach" caption="Watchlist · Groww CODE 2026">write the code</RevealWord>.
+            people who’ll use them before I <RevealWord tone="peach" caption="watch-me-Groww · Groww CODE 2026">write the code</RevealWord>.
           </p>
           <div className="hero__cta rise" style={{ '--d': '620ms' }}>
             <Button arrow onClick={() => scrollTo('#work', { offset: -90 })}>See the work</Button>
@@ -100,7 +100,7 @@ export default function Home() {
         </div>
         <div className="grid" key={filter}>
           {cells.length ? cells.map((p, i) => (
-            <Reveal key={p.id} className={'grid__cell' + (p.size === 'pill' ? ' is-pill' : '')} delay={(i % 2) * 110}>
+            <Reveal key={p.id} className={'grid__cell' + (p.size === 'pill' ? ' is-pill' : '')} delay={(i % 3) * 110}>
               <ProjectCard project={p} index={projects.indexOf(p) + 1} pill={p.size === 'pill'} />
             </Reveal>
           )) : <p className="grid__empty">Nothing here yet. More soon.</p>}

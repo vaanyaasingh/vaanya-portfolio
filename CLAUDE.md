@@ -38,10 +38,11 @@ in components.
   Two-digit indices (01, 02). No vanity stats.
 
 ## Site decisions Vaanya asked for (not in the design system)
-- **Home grid:** an equal two-column grid. Big cards come first; projects with `size: 'pill'` render
-  as compact pills the same width, after the big ones. There's no staggered 7/5 layout.
-  Six projects in total: 2 big (Go Girl, Raseed) + 4 pills (Watchlist, JobReady, KaamKar and one
-  placeholder side quest). She finds more big cards bulky; only add more if she asks.
+- **Home grid:** an equal three-column grid (two columns under 1100px, one under 900px). Big cards
+  come first; projects with `size: 'pill'` render as compact pills the same width, after the big ones.
+  There's no staggered 7/5 layout. Six projects in total: 3 big (Go Girl Community, Raseed,
+  watch-me-Groww) + 3 pills (JobReady, KaamKar, Go Girl Organisation), so both rows are full.
+  Keep big and pill counts at multiples of three.
 - **Work page (Home) order:** hero → marquee → Selected work grid → 01 Experience → 02 Go Girl →
   03 Study → Say hello. All three live in `src/components/Experience.jsx`; they moved off About.
 - **Background grid:** a fixed 1cm hairline grid (`.bg__grid`, ink at .06) between the mesh and the
@@ -71,7 +72,11 @@ in components.
   bodies are 1–2 sentences. Section types beyond text/image/pair/quote/facts/fork: `summary` (3 cards:
   problem / what I built / where it is), `stat` (one big number), `list` (numbered points), `media`
   (screen beside its point; `image.phone: true` for phone screenshots, `flip` to swap sides), and
-  `verdict` on a fork. Smart Market Watchlist is the reference layout. Never publish `[NEEDS: …]`
+  `verdict` on a fork, and `scatter` (loose working files on a desk, each with `x`/`y`/`w` in % and a
+  rotation `r`; hover shows a caption pill, click opens the file). `brand` (a product's guidelines drawn live in its own fonts and colours: logo, palette with roles, type, rules; `BrandBoard.jsx`; Raseed and watch-me-Groww have one), `gallery` (a row of small tiles) and `shelf` (posters
+  on a dock with a description pill above it: `PosterShelf.jsx`, sharing `lib/useDock.js` with About's shelf). Use one scatter instead of many image
+  sections when a project has lots of assets (she found rows of images bulky). watch-me-Groww (id `smart-market-watchlist`, renamed from Smart Market Watchlist) is the reference layout. The cover comes right after the
+  title, except when a project has no `cover` yet: then the opening summary + facts lead and the cover follows them (`problemFirst: true` forces this; Go Girl Community uses it). Never publish `[NEEDS: …]`
   placeholders from her drafts; leave those sections out until they're real.
 
 ## Open items (to-do list, last updated 2026-09-30)
@@ -86,23 +91,23 @@ Start the next session here. Ask Vaanya for whatever a line says is waiting on h
 3. **CV:** `public/Vaanya-Singh-CV.pdf` is missing, so "Download CV" is broken on the live site
    (it's `assets/Vaanya-Singh-CV.pdf` in the design project).
 4. **Photos:** About portrait, and the GGC event photo (`goGirl.community.photo`).
-5. **Go Girl images**, then rebuild the Go Girl case study in the skimmable format (like Raseed/Watchlist).
+5. **Go Girl Organisation images**, then rebuild that case study (Community is done: assets in
+   `public/work/go-girl-community/`, built around the member research calls; Luma is `luma.com/gogirlcommunity`) in the skimmable format (like Raseed/Watchlist).
 6. **Thumbnails** for the other projects (Raseed has `thumb`; others fall back to `cover`).
 
 **Copy to fill (placeholders are live on the site)**
 - Shelf: Passport story is `[One line about travel]` (`shelf` in `site.js`).
 - `currently`: every `[bracketed]` item. Ask if *Yesteryear* (Caro Claire Burke) is the current read.
-- `side-quest-two` pill: replace with a real project or remove.
 - JobReady and KaamKar are stubs with no case study.
 
 **Case studies**
-- Smart Market Watchlist is `placeholder: true`; after her user sessions add research, the turn, proof
+- watch-me-Groww is `placeholder: true`; after her user sessions add research, the turn, proof
   and reflection (her draft has `[NEEDS: …]` for these; never publish those brackets).
-- Go Girl is still in the old wordy format and `placeholder: true`.
+- Go Girl is two case studies (split 2026-09-30): `go-girl-community` (a women in tech community: 1000+ women across
+  WhatsApp, newsletter, Luma and Instagram, 30+ channels, meetups and workshops; its web page lives on gogirlorganisation.com) and `go-girl-organisation` (the nonprofit's
+  website, 40% sign-up lift). Community is built; Organisation is `placeholder: true` until she adds images.
 - Raseed screenshots show an "Invalid Date" bug in Recent activity. When she fixes it in the app,
   swap in new dashboard shots (desktop + `mobile-calendar`). Blur her email and any bank account numbers.
-- She asked whether Smart Market Watchlist should become a big card now it has a case study (one line:
-  remove `size: 'pill'`). Undecided.
 
 **Other**
 - Off the clock page: not built. The design is in `Off the Clock.dc.html`. When it's built, add

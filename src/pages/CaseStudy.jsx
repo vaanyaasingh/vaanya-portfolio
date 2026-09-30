@@ -1,9 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { Fragment, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { MixedHeadline } from '../components/MixedHeadline.jsx';
 import { Tag } from '../components/Tag.jsx';
 import { Button } from '../components/Button.jsx';
 import { Media } from '../components/Media.jsx';
+import { PosterShelf } from '../components/PosterShelf.jsx';
+import { BrandBoard } from '../components/BrandBoard.jsx';
 import { Reveal } from '../components/Reveal.jsx';
 import { TLink } from '../components/TLink.jsx';
 import { projects, getProject, kindsOf } from '../data/projects.js';
@@ -48,10 +50,10 @@ function Section({ s, tone, n }) {
       );
     case 'pair':
       return (
-        <div className="cs-pair">
+        <div className={'cs-pair' + (s.small ? ' cs-pair--small' : '')}>
           {s.images.map((im, i) => (
             <Reveal as="figure" key={i} delay={i * 120} className="cs-figure">
-              <Media src={im.src} alt={im.alt} tone={tone} ratio={im.ratio || '4/5'} radius="var(--radius-lg)" />
+              <Media src={im.src} alt={im.alt} tone={tone} ratio={im.ratio || '4/5'} radius={s.small ? 'var(--radius-md)' : 'var(--radius-lg)'} />
               {im.caption && <figcaption>{im.caption}</figcaption>}
             </Reveal>
           ))}
@@ -92,7 +94,7 @@ function Section({ s, tone, n }) {
       );
     case 'phones':
       return (
-        <div className="cs-phones">
+        <div className="cs-phones" style={{ '--n': s.images.length }}>
           {s.images.map((im, i) => (
             <Reveal as="figure" key={i} delay={i * 110} className="cs-figure cs-phones__fig">
               <Media src={im.src} alt={im.alt} tone={tone} ratio={im.ratio || '676/1456'} radius="28px" />
@@ -100,6 +102,26 @@ function Section({ s, tone, n }) {
             </Reveal>
           ))}
         </div>
+      );
+    case 'scatter':
+      // Loose working files on a desk. Hover (or focus) lifts one and shows what it is.
+      return (
+        <Reveal className="cs-text">
+          <span className="label">{pad(n)} · {s.label}</span>
+          <div className="cs-text__body">
+            {s.heading && <h2 className="h2">{s.heading}</h2>}
+            {(s.body || []).map((para, i) => <p key={i}>{para}</p>)}
+          </div>
+          <div className="cs-scatter">
+            {s.items.map((it) => (
+              <a key={it.src} href={it.src} target="_blank" rel="noreferrer" className="cs-scatter__item" data-cursor="Open"
+                style={{ '--x': it.x + '%', '--y': it.y + '%', '--w': it.w + '%', '--r': (it.r || 0) + 'deg' }}>
+                <img src={it.src} alt={it.alt} loading="lazy" decoding="async" />
+                <span className="cs-scatter__pill">{it.caption} <span aria-hidden="true">↗</span></span>
+              </a>
+            ))}
+          </div>
+        </Reveal>
       );
     case 'summary':
       // The 10-second version: one line each for problem, what I did, outcome.
@@ -140,6 +162,46 @@ function Section({ s, tone, n }) {
           </div>
         </Reveal>
       );
+    case 'shelf':
+      return (
+        <div className="cs-gallery">
+          <Reveal className="cs-gallery__head">
+            <span className="label">{pad(n)} · {s.label}</span>
+            {s.heading && <h2 className="h2">{s.heading}</h2>}
+          </Reveal>
+          <Reveal><PosterShelf items={s.items} label={s.heading || s.label} /></Reveal>
+        </div>
+      );
+    case 'brand':
+      // The product's own guidelines, set in its own fonts and colours.
+      return (
+        <div className="cs-gallery">
+          <Reveal className="cs-gallery__head">
+            <span className="label">{pad(n)} · {s.label}</span>
+            {s.heading && <h2 className="h2">{s.heading}</h2>}
+            {(s.body || []).map((para, i) => <p key={i} className="cs-gallery__lede">{para}</p>)}
+          </Reveal>
+          <BrandBoard brand={s.brand} />
+        </div>
+      );
+    case 'gallery':
+      // Things that were made (guides, posters, headers): small tiles, each at its own shape.
+      return (
+        <div className="cs-gallery">
+          <Reveal className="cs-gallery__head">
+            <span className="label">{pad(n)} · {s.label}</span>
+            {s.heading && <h2 className="h2">{s.heading}</h2>}
+          </Reveal>
+          <div className="cs-gallery__grid" style={{ '--cols': Math.min(4, s.images.reduce((c, im) => c + (im.wide ? 2 : 1), 0)) }}>
+            {s.images.map((im, i) => (
+              <Reveal as="figure" key={im.src || i} delay={i * 90} className={'cs-figure cs-gallery__fig' + (im.wide ? ' is-wide' : '')}>
+                <Media src={im.src} alt={im.alt} tone={tone} ratio={im.ratio || '4/5'} radius="var(--radius-sm)" />
+                {im.caption && <figcaption>{im.caption}</figcaption>}
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      );
     case 'media':
       // Screen on one side, its point on the other.
       return (
@@ -175,6 +237,17 @@ export default function CaseStudy() {
   const next = projects[(i + 1) % projects.length];
   let n = 0;
 
+  // Picture first, unless there's no real cover yet: then the opening summary
+  // (and the facts strip right after it) lead, so a hatched placeholder isn't the opener.
+  const problemFirst = p.problemFirst ?? !p.cover;
+  let lead = p.sections.findIndex((s) => !['summary', 'facts'].includes(s.type));
+  lead = Math.max(1, lead === -1 ? p.sections.length : lead) - 1;
+  const cover = (
+    <div className="rise rise--img" style={{ '--d': '520ms' }}>
+      <Media src={p.cover} alt={p.coverAlt || ''} tone={p.tone} ratio={p.coverRatio || '16/8'} label="cover image" radius="var(--radius-lg)" className="cs-cover" />
+    </div>
+  );
+
   return (
     <article className="cs wrap">
       <Progress />
@@ -191,13 +264,16 @@ export default function CaseStudy() {
         ))}
       </dl>
 
-      <div className="rise rise--img" style={{ '--d': '520ms' }}>
-        <Media src={p.cover} alt={p.coverAlt || ''} tone={p.tone} ratio={p.coverRatio || '16/8'} label="cover image" radius="var(--radius-lg)" className="cs-cover" />
-      </div>
+      {!problemFirst && cover}
 
       {p.sections.map((s, k) => {
-        if (['text', 'fork', 'list', 'media'].includes(s.type)) n++;
-        return <Section key={k} s={s} tone={p.tone} n={n} />;
+        if (['text', 'fork', 'list', 'media', 'scatter', 'shelf', 'gallery', 'brand'].includes(s.type)) n++;
+        return (
+          <Fragment key={k}>
+            <Section s={s} tone={p.tone} n={n} />
+            {problemFirst && k === lead && cover}
+          </Fragment>
+        );
       })}
 
       {next && next.id !== p.id && (
