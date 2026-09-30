@@ -112,6 +112,10 @@ Start the next session here. Ask Vaanya for whatever a line says is waiting on h
   research"), the quote + role (a `quote` right after "The research"), and whether "The turn" in `summary`
   should now count five interviews in total. Stat (with `source` links), fork verdicts, "Round two" and
   "What's next" are done.
+- watch-me-Groww was restructured 2026-10-01 the same way: problem → brief → fork → trust call → fake-crash
+  fork → annotated feed screen (6 pins) → brand → phones → still open. Scorecard 14/25, because the blocks
+  that score are the ones waiting on her user sessions: who she spoke to (n, roles), the turn, a quote with a
+  role, one thing that broke in the build, and a before/after against Groww's own watchlist (same viewport).
 - watch-me-Groww: needs a source link for the demat stat ("About 1 in 24 traded in May"). If there isn't
   one, reword the note so trading frequency isn't read as checking frequency.
 - Go Girl Community, waiting on her: a "The problem" row (first in `summary`: why the three of them

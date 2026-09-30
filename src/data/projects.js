@@ -264,12 +264,12 @@ export const projects = [
         { k: 'What I built', v: 'A watchlist that shows only what changed since you last looked, ranked by rules that can explain themselves.' },
         { k: 'Where it is', v: 'Submitted to Groww CODE 2026, built solo. Sessions with real investors are next.' },
       ] },
+      { type: 'stat', v: '25.7 crore', k: 'Demat accounts in India, June 2026.', note: 'About 1 in 24 traded in May.' },
+      { type: 'text', label: 'The problem', heading: 'Most investors check in occasionally, and seeing too much makes them worse at it.', body: [
+        'People who check their portfolio more often take less risk and earn less (Thaler, Tversky, Kahneman and Schwartz, 1997). A watchlist that shows every red number is not neutral.',
+      ] },
       { type: 'text', label: 'The brief', heading: 'Groww asked for a watchlist that shows what changed. My answer: rules decide, AI only writes.', body: [
         'Significance comes from explainable rules, so you can always ask “why am I seeing this?” and get an answer. The AI only turns that decision into a sentence.',
-      ] },
-      { type: 'stat', v: '25.7 crore', k: 'Demat accounts in India, June 2026.', note: 'About 1 in 24 traded in May.' },
-      { type: 'text', label: 'The tension', heading: 'Most investors check in occasionally, and seeing too much makes them worse at it.', body: [
-        'People who check their portfolio more often take less risk and earn less (Thaler, Tversky, Kahneman and Schwartz, 1997). A watchlist that shows every red number is not neutral.',
       ] },
       { type: 'fork', label: 'The first fork', options: [
         { title: 'Flat 5% alerts', body: 'Easy to explain, and what Groww does. But 5% is noise for a small-cap and an alarm for an index fund.' },
@@ -283,12 +283,15 @@ export const projects = [
         { title: 'Detect splits and bonuses', body: 'No false alarms, at the cost of more data and more edge cases.', chosen: true },
       ], verdict: 'For a nervous new investor, a fake crash is the worst possible alert.' },
       { type: 'media', flip: true, label: 'The build', heading: 'Built for the investor who’s already nervous.', items: [
-        { title: 'Since you last checked', body: 'Compared with what you last saw, not yesterday’s close.' },
-        { title: 'A ranked attention feed', body: 'Only the top few changes. The rest stay quiet.' },
-        { title: 'Honest staleness', body: '“Market closed” looks different from “data feed stuck”.' },
+        { title: 'Ranked, then quiet', body: 'Ordered by how unusual each move is, not by name. Only the top few changes make the feed.' },
+        { title: 'Colour means attention', body: 'Medium is amber and low is olive. Nothing else on the card gets a colour.' },
+        { title: 'Every alert carries its reason', body: '“Statistical deviation” or “within normal range”, never just a red number.' },
+        { title: 'Honest staleness', body: '“Market closed · 24d ago” gets a grey dot and “Live · just now” a green one, so a stuck feed never passes for a quiet market.' },
+        { title: 'Inform, never advise', body: 'No buy or sell language, no order execution, no copy trading. The disclaimer sits under the feed.' },
         { title: 'Subscription-window tracker', body: 'Warns when overseas funds pause new investment under RBI limits.' },
-        { title: 'Hard limits', body: 'No advice, no order execution, no copy trading.' },
-      ], image: { src: '/work/smart-market-watchlist/watchlist.webp', ratio: '676/1456', phone: true, alt: 'Watchlist of nine: closed markets marked “Market closed · 24d ago”, live funds “Live · just now”', caption: 'Closed says closed. Live says just now.' } },
+      ], image: { src: '/work/smart-market-watchlist/feed-light.webp', ratio: '676/1456', phone: true, alt: 'The attention feed: Reliance and TCS marked medium, ICICI Bank low, each with its reason and a market-closed dot', caption: 'After 24 days away: two moves worth a look, and one flagged as normal.', pins: [
+        { x: 88, y: 16.5 }, { x: 74, y: 23 }, { x: 67, y: 31 }, { x: 65.5, y: 39.3 }, { x: 50, y: 90.5 }, { x: 80.5, y: 11.4 },
+      ] } },
       { type: 'brand', label: 'The brand', heading: 'Warm paper, and colour that only means how much it matters.', body: [
         'Cream and ink instead of a trading terminal’s neon, one typeface, and three colours kept for attention.',
       ], brand: {
