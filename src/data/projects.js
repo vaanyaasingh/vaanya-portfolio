@@ -27,7 +27,7 @@ export const projects = [
     // Resume contact details are blurred in the shots.
     title: 'JobReady',
     kind: ['Research', 'Designed', 'Coded'],
-    year: '2026',
+    year: '2025',
     tone: 'peach',
     gradient: 'dawn',
     role: 'Team of 3 with Manya Sharma and Aryaki',
