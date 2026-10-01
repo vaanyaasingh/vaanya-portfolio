@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { MixedHeadline } from '../components/MixedHeadline.jsx';
 import { Tag } from '../components/Tag.jsx';
 import { Button } from '../components/Button.jsx';
-import { Media } from '../components/Media.jsx';
+import { Media, Laptop } from '../components/Media.jsx';
 import { PosterShelf } from '../components/PosterShelf.jsx';
 import { BrandBoard } from '../components/BrandBoard.jsx';
 import { Reveal } from '../components/Reveal.jsx';
@@ -153,7 +153,20 @@ function Section({ s, tone, n }) {
     case 'list':
       return (
         <Reveal className="cs-text">
-          <span className="label">{pad(n)} · {s.label}</span>
+          {s.aside ? (
+            // Small screens in the left column, numbered to match the points beside them
+            <div className="cs-side">
+              <span className="label">{pad(n)} · {s.label}</span>
+              <div className="cs-side__tiles">
+                {s.aside.map((a, i) => (
+                  <figure key={a.alt} className="cs-side__tile">
+                    <Media src={a.src} alt={a.alt} tone={tone} ratio="16/10" label={a.caption} radius="var(--radius-sm)" />
+                    <figcaption><span className="cs-pin cs-pin--key" aria-hidden="true">{pad(i + 1)}</span>{a.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          ) : <span className="label">{pad(n)} · {s.label}</span>}
           <div className="cs-text__body">
             {s.heading && <h2 className="h2">{s.heading}</h2>}
             <ol className="cs-list">
@@ -212,13 +225,18 @@ function Section({ s, tone, n }) {
       return (
         <div className={'cs-media' + (s.flip ? ' is-flip' : '') + (s.image.phone ? ' is-phone' : '') + (s.image.pins ? ' is-pinned' : '')}>
           <Reveal as="figure" className="cs-figure cs-media__fig">
-            <div className="cs-pins">
-              <Media src={s.image.src} alt={s.image.alt} tone={tone} ratio={s.image.ratio || '16/10'} radius={s.image.phone ? '28px' : 'var(--radius-lg)'} />
-              {/* Numbered markers on the screen, matching the numbered notes beside it */}
-              {(s.image.pins || []).map((pin, i) => (
-                <span key={i} className="cs-pin" style={{ '--x': pin.x + '%', '--y': pin.y + '%', '--i': i }} aria-hidden="true">{pad(i + 1)}</span>
-              ))}
-            </div>
+            {(() => {
+              const screen = (
+                <div className="cs-pins">
+                  <Media src={s.image.src} alt={s.image.alt} tone={tone} ratio={s.image.ratio || '16/10'} radius={s.image.phone ? '28px' : s.image.laptop ? '3px' : 'var(--radius-lg)'} />
+                  {/* Numbered markers on the screen, matching the numbered notes beside it */}
+                  {(s.image.pins || []).map((pin, i) => (
+                    <span key={i} className="cs-pin" style={{ '--x': pin.x + '%', '--y': pin.y + '%', '--i': i }} aria-hidden="true">{pad(i + 1)}</span>
+                  ))}
+                </div>
+              );
+              return s.image.laptop ? <Laptop>{screen}</Laptop> : screen;
+            })()}
             {s.image.caption && <figcaption>{s.image.caption}</figcaption>}
           </Reveal>
           <Reveal delay={120} className="cs-media__text">
@@ -262,7 +280,9 @@ export default function CaseStudy() {
   lead = Math.max(1, lead === -1 ? p.sections.length : lead) - 1;
   const cover = (
     <div className="rise rise--img" style={{ '--d': '520ms' }}>
-      <Media src={p.cover} alt={p.coverAlt || ''} tone={p.tone} ratio={p.coverRatio || '16/8'} label="cover image" radius="var(--radius-lg)" className="cs-cover" />
+      {p.coverLaptop
+        ? <Laptop className="cs-cover-laptop"><Media src={p.cover} alt={p.coverAlt || ''} tone={p.tone} ratio={p.coverRatio || '16/8'} label="cover image" radius="3px" /></Laptop>
+        : <Media src={p.cover} alt={p.coverAlt || ''} tone={p.tone} ratio={p.coverRatio || '16/8'} label="cover image" radius="var(--radius-lg)" className="cs-cover" />}
     </div>
   );
 

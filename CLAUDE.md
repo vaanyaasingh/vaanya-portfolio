@@ -41,8 +41,10 @@ in components.
 ## Site decisions Vaanya asked for (not in the design system)
 - **Home grid:** an equal three-column grid (two columns under 1100px, one under 900px). Big cards
   come first; projects with `size: 'pill'` render as compact pills the same width, after the big ones.
-  There's no staggered 7/5 layout. Six projects in total: 3 big (Go Girl Community, Raseed,
-  watch-me-Groww) + 3 pills (JobReady, KaamKar, Go Girl Organisation), so both rows are full.
+  There's no staggered 7/5 layout. Six projects in total: 3 big (JobReady, Raseed,
+  watch-me-Groww) + 3 pills (Go Girl Community, KaamKar, Go Girl Organisation), so both rows are full
+  (swapped 2026-10-02). Card numbers follow the grid order. Every card, big or pill, shows its kind tags,
+  and every arrow circle is the same size (52px).
   Keep big and pill counts at multiples of three.
 - **Work page (Home) order:** hero → marquee → Selected work grid → 01 Experience → 02 Go Girl →
   03 Study → Say hello. All three live in `src/components/Experience.jsx`; they moved off About.
@@ -94,16 +96,25 @@ Start the next session here. Ask Vaanya for whatever a line says is waiting on h
 3. **CV:** `public/Vaanya-Singh-CV.pdf` is missing, so "Download CV" is broken on the live site
    (it's `assets/Vaanya-Singh-CV.pdf` in the design project).
 4. **Photos:** About portrait, and the GGC event photo (`goGirl.community.photo`).
-5. **Go Girl Organisation images**, then rebuild that case study (Community is done: assets in
-   `public/work/go-girl-community/`, built around the member research calls; Luma is `luma.com/gogirlcommunity`) in the skimmable format (like Raseed/Watchlist).
+5. **Go Girl Organisation** was rebuilt 2026-10-02 from her case study draft, with screens captured from the live
+   site (`public/work/go-girl-organisation/`). Waiting on her (all left off the page): confirm the role title;
+   launch date; analytics, donations and form submissions before/after; why CSR came first and why Netlify over
+   Vercel; why Jessica's "cook" headline died; old Wix screenshots; one honest non-result; a real tutor quote.
+   Her draft's "8 annual reports a funder can download" is left out: 2022 is "coming soon", so 7 download.
+   "What broke" (number drift, placeholder quote) goes stale once she fixes the live site.
 6. **Thumbnails** for the other projects (Raseed has `thumb`; others fall back to `cover`).
 
 **Copy to fill (placeholders are live on the site)**
 - Shelf: Passport story is `[One line about travel]` (`shelf` in `site.js`).
 - `currently`: every `[bracketed]` item. Ask if *Yesteryear* (Caro Claire Burke) is the current read.
-- JobReady and KaamKar are stubs with no case study.
-
-**Case studies**
+- KaamKar is a stub with no case study.
+- JobReady: case study rewritten 2026-10-02 (research → insights → HMW → decisions → solution). All screens in
+  `public/work/jobready/` (resume contact details blurred); a pill (keeps the 3 + 3 grid), no longer a draft.
+  Waiting on her: her role; the semester; the 5 usability
+  sessions (a section after the screens). App bugs she should fix: the resume PDF exports only the header
+  (she doesn't want this on the site), the tutor shows raw `**markdown**`, the dashboard has a
+  "0% Job Match" tile, plus the fake landing stats, "10+ languages", the 10-language onboarding list and the
+  hardcoded Google API key. No field for the live link (job-ready-six.vercel.app) yet.
 - Raseed was restructured 2026-10-01 after the Case Study Bible + the Avika Behance case study: problem →
   research → fork → how it works → annotated notice screen → rule → phones → brand → what broke → trade-off
   → round two (proof) → next time → what's next. Scorecard 19/25; the facts below are worth about +4.
@@ -126,7 +137,8 @@ Start the next session here. Ask Vaanya for whatever a line says is waiting on h
   and reflection (her draft has `[NEEDS: …]` for these; never publish those brackets).
 - Go Girl is two case studies (split 2026-09-30): `go-girl-community` (a women in tech community: 1000+ women across
   WhatsApp, newsletter, Luma and Instagram, 30+ channels, meetups and workshops; its web page lives on gogirlorganisation.com) and `go-girl-organisation` (the nonprofit's
-  website, 40% sign-up lift). Community is built; Organisation is `placeholder: true` until she adds images.
+  website rebuild, May to Sep 2026). Both are built. The old "40% sign-up lift" claim was dropped: her new draft
+  says there's no behavioural data yet.
 - Raseed screenshots show an "Invalid Date" bug in Recent activity. When she fixes it in the app,
   swap in new dashboard shots (desktop + `mobile-calendar`). Blur her email and any bank account numbers.
 

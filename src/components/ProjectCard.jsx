@@ -37,9 +37,8 @@ export function ProjectCard({ project, index, pill = false }) {
       <span className="card__index">{String(index).padStart(2, '0')}</span>
       <span className="card__pill-text">
         <span className="card__title">{title}</span>
-        {role && <span className="card__role">{role}</span>}
+        <span className="card__tags">{kindsOf(project).map((k) => <Tag key={k} tone="paper">{k}</Tag>)}{year && <Tag>{year}</Tag>}</span>
       </span>
-      <span className="card__tags">{kindsOf(project).map((k) => <Tag key={k} tone="paper">{k}</Tag>)}{year && <Tag>{year}</Tag>}</span>
       <span className="card__arrow" aria-hidden="true">↗</span>
     </TLink>
   );

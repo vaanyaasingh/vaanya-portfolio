@@ -101,7 +101,7 @@ export default function Home() {
         <div className="grid" key={filter}>
           {cells.length ? cells.map((p, i) => (
             <Reveal key={p.id} className={'grid__cell' + (p.size === 'pill' ? ' is-pill' : '')} delay={(i % 3) * 110}>
-              <ProjectCard project={p} index={projects.indexOf(p) + 1} pill={p.size === 'pill'} />
+              <ProjectCard project={p} index={layout(projects).indexOf(p) + 1} pill={p.size === 'pill'} />
             </Reveal>
           )) : <p className="grid__empty">Nothing here yet. More soon.</p>}
         </div>

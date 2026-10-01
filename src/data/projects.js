@@ -23,7 +23,102 @@
 
 export const projects = [
   {
+    id: 'jobready',
+    // Resume contact details are blurred in the shots.
+    title: 'JobReady',
+    kind: ['Research', 'Designed', 'Coded'],
+    year: '2026',
+    tone: 'peach',
+    gradient: 'dawn',
+    role: 'Team of 3 with Manya Sharma and Aryaki',
+    stack: 'Figma · React · Node.js · MongoDB · LLaMA 3.1',
+    summary: 'Job skills taught in English, Hindi and Kannada, ending in a resume you can send.',
+    hook: 'in your own language',
+    thumb: '/work/jobready/learning.webp',
+    cover: '/work/jobready/landing.webp',
+    coverLaptop: true,   // drawn inside a MacBook
+    coverRatio: '1800/900',
+    coverAlt: 'JobReady landing page: “Learn Skills. Get Jobs.”, available in English, Hindi and Kannada',
+    sections: [
+      { type: 'summary', items: [
+        { k: 'The problem', v: 'Job skill tutorials exist, but most are in English and nobody checks if you understood them.' },
+        { k: 'What we built', v: 'A learning app in English, Hindi and Kannada, with an AI tutor and a resume builder at the end.' },
+        { k: 'For', v: 'First-time job seekers who aren’t comfortable learning in English.' },
+      ] },
+      { type: 'stat', v: '54.81%', k: 'of final-year graduates were found employable in the India Skills Report 2025.', note: 'For women, it dropped to 47.5%.',
+        source: [{ label: 'India Skills Report 2025', href: 'https://taggd.in/industry-reports/isr/india-skills-report-2025/' }] },
+      { type: 'text', label: 'The problem', heading: 'The tutorials exist. Most of them are in English.', body: [
+        'Millions of young people in India want their first job but don’t have the skills employers ask for. Learning online is hard if you’re not comfortable in English, and nobody checks whether you understood.',
+      ] },
+      { type: 'stat', v: '57%', k: 'of urban internet users in India prefer content in Indian languages.', note: '98% access some content in an Indian language.',
+        source: [{ label: 'IAMAI and Kantar, Internet in India 2024', href: 'https://www.businesstoday.in/technology/news/story/indias-internet-revolution-key-insights-from-kantar-and-iamai-report-461043-2025-01-16' }] },
+      { type: 'list', label: 'Competitor analysis', heading: 'Nobody combined learning in your language with something to show an employer.', items: [
+        { title: 'Government schemes', body: 'PMKVY and Skill India have structured courses, but the same course for everyone and little follow-up.' },
+        { title: 'YouTube', body: 'Free and huge, but no structure, no tests, and mostly English.' },
+        { title: 'Local training centres', body: 'Hands-on, but hard to reach and fixed timings.' },
+        { title: 'Job portals', body: 'Naukri, Apna and Indeed list jobs, but don’t teach skills or check what you know.' },
+      ] },
+      { type: 'list', label: 'Personas', heading: 'Two people we designed for.', items: [
+        { title: 'Ravi, 19, Ranchi', body: 'Finished school, helps at his father’s shop, low-end Android phone, limited English. Wants a billing job at a supermarket. Can’t follow English tutorials.' },
+        { title: 'Meena, 32, Kolkata', body: '10th pass, homemaker for ten years. Wants a back-office job to pay for her children’s education. Wants to learn Word and email in simple Hindi. Worried about online scams.' },
+      ] },
+      { type: 'list', label: 'Key insights', heading: 'Three things shaped the design.', items: [
+        { title: 'The content exists, the language doesn’t', body: 'Ravi can find an Excel tutorial in seconds. He just can’t follow it.' },
+        { title: 'Learning needs an outcome', body: 'People want to know what a course gets them. A resume line matters more than another video.' },
+        { title: 'One path, not a catalogue', body: 'A long list of courses is overwhelming if you don’t know where to start.' },
+      ] },
+      { type: 'text', label: 'How might we', heading: 'Help a first-time job seeker learn a skill in their own language, and leave with something to show an employer?', body: [] },
+      { type: 'media', label: 'Decision 1', heading: 'We ask for language first.', body: [
+        'It’s the first step of onboarding. Every screen after it depends on the answer, so it made no sense to ask later.',
+      ], image: { src: '/work/jobready/onboarding-language.webp', laptop: true, ratio: '1800/1130', alt: 'Onboarding step one of four: Preferred language, “Select the language you’re most comfortable learning in”', caption: 'Language is step one of four, before location, education and interests.' } },
+      { type: 'media', flip: true, label: 'Decision 2', heading: 'Three languages, plus Hinglish for the tutor.', body: [
+        'The interface is in English, Hindi and Kannada. The tutor can also answer in Hinglish, because a lot of young people type Hindi in English letters, and formal Hindi can feel like a textbook.',
+      ], image: { src: '/work/jobready/tutor-languages.webp', ratio: '1800/1130', alt: 'The AI tutor’s language menu: English, Hindi, Kannada and Hinglish', caption: 'The tutor’s language menu: English, Hindi, Kannada and Hinglish.' } },
+      { type: 'fork', label: 'Decision 3', options: [
+        { title: 'Google Translate on every screen', body: 'The original plan. Fast, but button labels often come out wrong, and you can’t fix them.' },
+        { title: 'Translation files for the interface', body: 'All interface text in Hindi and Kannada files that can be checked and corrected. Only the tutor’s answers are written live.', chosen: true },
+      ], verdict: 'Text that never changes should be checked by a person. The model only writes what can’t be written in advance.' },
+      { type: 'fork', label: 'Decision 4', options: [
+        { title: 'Job matching first', body: 'In our proposal. But it needs a real job database, which we didn’t have.' },
+        { title: 'Learning first, resume at the end', body: 'Courses, a tutor, and a resume built from finished courses. Useful right away.', chosen: true },
+      ], verdict: 'A resume is something a learner can use this week. Job matching comes once there’s real job data.' },
+      { type: 'media', flip: true, label: 'Self-assessment', heading: 'Eight questions before the first course.', body: [
+        'Right after onboarding, a short self-assessment asks how comfortable you are with computers and communication, to suggest where to start.',
+      ], image: { src: '/work/jobready/self-assessment.webp', ratio: '1800/1130', alt: 'Skill assessment, question 1 of 8: how comfortable are you using a computer?', caption: 'Question one: how comfortable are you on a computer?' } },
+      { type: 'media', label: 'Courses', heading: 'Every course on one page.', body: [
+        'Microsoft Excel, Word and PowerPoint, email, English speaking and customer service, and data entry. Your progress across all of them sits at the top.',
+      ], image: { src: '/work/jobready/learning.webp', laptop: true, ratio: '1800/1130', alt: 'Learning modules: Microsoft skills, email, English speaking and customer service, and data entry, with course progress', caption: 'Five modules to start with, and more that unlock as you go.' } },
+      { type: 'media', flip: true, label: 'Inside a course', heading: 'Three levels, and a tutor on every video.', body: [
+        'Each course splits into beginner, intermediate and advanced. Every video has an AI summary, an Ask Tutor button and a box to tick when you’re done.',
+      ], image: { src: '/work/jobready/course-levels.webp', ratio: '1800/1130', alt: 'Microsoft Skills course with beginner, intermediate and advanced levels, and videos for Excel, Word and PowerPoint', caption: 'Microsoft skills at the beginner level.' } },
+      { type: 'media', label: 'AI tutor', heading: 'Pick a mode, and the tutor stays on the course.', body: [
+        'Learners choose to be tested, get short notes, or ask a doubt. The tutor answers about the course they picked, instead of turning into an open chatbot.',
+      ], items: [
+        { title: 'Quiz, notes or doubt', body: 'Three modes, so you say what kind of help you want.' },
+        { title: 'The course', body: 'Answers stay inside what you’re learning.' },
+        { title: 'The topic', body: 'Narrow it down to one thing, like keyboard shortcuts.' },
+        { title: 'The language', body: 'English, Hindi, Kannada or Hinglish, picked per question.' },
+        { title: 'Five questions', body: 'Each quiz comes with explanations to review.' },
+      ], image: { src: '/work/jobready/tutor-quiz.webp', ratio: '1800/1130', alt: 'AI tutor in quiz mode: five questions on keyboard shortcuts for the Microsoft Skills course', caption: 'Quiz mode on keyboard shortcuts.', pins: [
+        { x: 30, y: 15.4 }, { x: 30, y: 34.7 }, { x: 30, y: 43.5 }, { x: 32, y: 52.6 }, { x: 80, y: 30.8 },
+      ] } },
+      { type: 'media', flip: true, label: 'Resume builder', heading: 'Leave with a resume.', body: [
+        'Skills from finished courses are added automatically. Three templates: modern, minimal and creative.',
+      ], image: { src: '/work/jobready/resume-modern.webp', laptop: true, ratio: '1800/1029', alt: 'Resume builder, modern template: Priya Sharma, data entry and office assistant, with skill bars for Excel, email, typing and Word', caption: 'Priya, a demo learner close to Ravi: 12th pass, looking for her first office job.' } },
+      // Usability testing section goes here once the sessions are done.
+      { type: 'list', label: 'What’s next', heading: 'Where it goes from here.', items: [
+        { title: 'Job matching', body: 'Once there’s a job database to match against.' },
+        { title: 'A real skills test', body: 'To replace the self-assessment.' },
+        { title: 'More languages', body: 'Starting with Bengali.' },
+      ] },
+      { type: 'text', label: 'Reflection', heading: 'Language turned out to be the whole product.', body: [
+        'If I did it again, I’d talk to learners before writing personas, and test the tutor’s Hindi and Kannada answers with native speakers from day one.',
+      ] },
+    ],
+  },
+  {
     id: 'go-girl-community',
+    size: 'pill',
     title: 'Go Girl Community',
     kind: ['Research', 'Designed'],
     year: '2024',
@@ -245,7 +340,7 @@ export const projects = [
   {
     id: 'smart-market-watchlist',
     title: 'watch-me-Groww',
-    kind: 'Coded',
+    kind: ['Designed', 'Coded'],
     year: '2026',
     tone: 'butter',
     gradient: 'dawn',
@@ -331,24 +426,6 @@ export const projects = [
     ],
   },
   {
-    id: 'jobready',
-    size: 'pill',
-    title: 'JobReady',
-    kind: 'Coded',
-    year: '2026',
-    tone: 'peach',
-    gradient: 'dawn',
-    role: 'Team project · multilingual learning platform',
-    stack: 'React · LLaMA 3.1 · English, Hindi, Kannada',
-    summary: 'Job skills taught in English, Hindi, Kannada and Hinglish, ending in a resume you can send.',
-    hook: 'in your own language',
-    placeholder: true,
-    sections: [
-      { type: 'text', label: 'The tension', body: ['Case study coming soon.'] },
-      { type: 'pair', images: [{ alt: 'The same screen in three languages' }, { alt: 'AI tutor answering in Hinglish' }] },
-    ],
-  },
-  {
     id: 'kaamkar',
     title: 'KaamKar',
     kind: 'Coded',
@@ -367,32 +444,132 @@ export const projects = [
     id: 'go-girl-organisation',
     size: 'pill',
     title: 'Go Girl Organisation',
-    kind: ['Designed', 'Coded'],
-    year: '2021',
+    kind: ['Research', 'Designed', 'Coded'],
+    year: '2026',
     tone: 'rose',
     gradient: 'dawn',
-    role: 'Website, designed and built · volunteer since 2021',
-    stack: 'Figma · React · Razorpay',
-    summary: 'The website for a nonprofit teaching girls to code, and sign-up flows that stopped losing people.',
-    hook: 'making it easy to say yes',
-    // TODO(Vaanya): homepage and donation flow screenshots.
-    placeholder: true,
+    role: 'Content strategy, information architecture and build lead · with Japnit Ahuja, Jessica Singh and Shaniya Khan',
+    stack: 'Next.js · TypeScript · Tailwind CSS · Framer Motion · Netlify · Claude Code',
+    summary: 'A nonprofit’s website, rebuilt for the people who decide in one scroll whether a girl gets a tutor.',
+    hook: 'a front door for one scroll',
+    cover: '/work/go-girl-organisation/home.webp',
+    coverLaptop: true,
+    coverRatio: '1800/1148',
+    coverAlt: 'The Go Girl Organisation homepage: “The AI future needs every girl in it”, with Donate now and Partner with us, and partner logos under the hero',
     sections: [
       { type: 'summary', items: [
-        { k: 'The problem', v: 'Volunteers, donors and partners first meet Go Girl on a screen. If that moment is confusing, they leave, and a girl does not get a tutor.' },
-        { k: 'What I built', v: 'gogirlorganisation.com, from Figma to React, with a Razorpay donation flow for Indian and international donors.' },
-        { k: 'Where it is', v: 'Live. After I rebuilt the sign-up flows, completion rose 40%.' },
+        { k: 'The problem', v: 'The old Wix site broke on phones, sent two nav links back to the homepage and hid the donate button.' },
+        { k: 'What I did', v: 'Rebuilt it over four months, from the information architecture up, in code, for CSR teams, donors and volunteers.' },
+        { k: 'Where it is', v: 'Live at gogirlorganisation.com. What I can prove so far is structural, not behavioural. A second phase is under way.' },
       ] },
-      { type: 'stat', v: '40%', k: 'more people finished signing up after the rebuild' },
-      { type: 'text', label: 'The start', heading: 'I walked in as a volunteer teaching kids to code.', body: [
-        'Go Girl teaches coding and AI literacy to girls aged 7 to 20 across India and Canada. I started in 2021 teaching in Ranchi, ran programmes in Haryana and Punjab, then became the first donor acquisitions manager.',
+      { type: 'facts', items: [
+        { k: 'Timeline', v: 'May to Sep 2026' },
+        { k: 'Students since 2018', v: '2,426' },
+        { k: 'Programmes', v: '85' },
+        { k: 'Hours taught', v: '1,745' },
       ] },
-      { type: 'image', alt: 'gogirlorganisation.com homepage', caption: 'Designed in Figma, built in React, with donations through Razorpay.' },
-      { type: 'text', label: 'Now', heading: 'Leading the restructure of the whole brand.', body: [
-        'New guidelines, a new voice, one organisation.',
+      { type: 'text', label: 'The stakes', heading: 'A nonprofit website is the moment a yes turns into a no.', body: [
+        'Go Girl teaches free coding, AI literacy and English to girls aged 7 to 20 across India and Canada. It runs on donors, volunteers and corporate partners, and almost every one of them meets it first on a screen.',
       ] },
-      { type: 'text', label: 'What it taught me', heading: 'The front door is the product.', body: [
-        'For a donor on a phone, the first minute decides everything. I learned to design that minute, and to measure what happens after it.',
+      { type: 'media', label: 'The audit', heading: 'The villain wasn’t ugliness. It was a trust gap.', items: [
+        { title: 'It broke on phones', body: 'The layout fell apart below 480px, on the phones most Indian donors find us on through Instagram and WhatsApp forwards.' },
+        { title: 'The nav went nowhere', body: '“Our Work” and “Our Founder” both pointed back to the homepage.' },
+        { title: 'Giving was hidden', body: 'No donate page, no 80G tax benefit callout and no registration details in the footer.' },
+        { title: 'It apologised for itself', body: '“Join Us” had no roles behind it, partners were logos with no context, and the stats headline said “Small numbers, big swings.”' },
+        { title: 'AI search couldn’t see it', body: 'People ask ChatGPT and Perplexity which NGOs teach girls to code. A Wix site with no plain-language answers never came up.' },
+      ], image: { src: '/work/go-girl-organisation/old-home.webp', laptop: true, ratio: '1800/1058', alt: 'The old Wix homepage: “Every Girl Deserves Quality Education” over a classroom photo, with Join Us and Donate buttons', caption: 'The old Wix homepage. Same organisation, same seven years of work.' } },
+      { type: 'list', label: 'Three visitors', heading: 'Three visitors, three different one-minute decisions.', items: [
+        { title: 'The CSR manager', body: 'Has a mandate to fund measurable impact. Needs registrations, named partners, an annual report and a contact, fast.' },
+        { title: 'The individual donor', body: 'Urban India, 22 to 40, arriving from Instagram or WhatsApp. Needs one proof point, one trust signal and a two-click payment.' },
+        { title: 'The volunteer', body: 'Usually 18 to 30. Needs to know what the role is, how many hours it takes and what she gets out of it.' },
+        { title: 'No interviews, said plainly', body: 'These come from the team’s experience with each audience, the founder’s partnership conversations and a review of 12 nonprofits.' },
+      ] },
+      { type: 'list', label: 'Research', heading: 'Twelve nonprofit sites taught me the visitor has to be the hero.', aside: [
+        { src: '/work/go-girl-organisation/peer-cry.webp', alt: 'CRY India homepage', caption: 'CRY' },
+        { src: '/work/go-girl-organisation/peer-roomtoread.webp', alt: 'Room to Read homepage, with the donation form over the hero', caption: 'Room to Read' },
+        { src: '/work/go-girl-organisation/peer-codeorg.webp', alt: 'Code.org homepage, now CodeAI: students already use AI, they should understand it too', caption: 'Code.org' },
+        { alt: 'Educate Girls homepage', caption: 'Educate Girls' },
+        { src: '/work/go-girl-organisation/peer-shesthefirst.webp', alt: 'She’s the First homepage: building a world where every girl chooses her own future', caption: 'She’s the First' },
+      ], items: [
+        { title: 'CRY reports outcomes, not reach', body: 'Percentages against national averages read as proof. Raw counts read as activity.' },
+        { title: 'Room to Read frames numbers by year', body: '“In 2025 alone” makes impact feel current, not historical.' },
+        { title: 'Code.org calls partners co-architects', body: 'Not funders. It changes how a CSR manager sees herself on the page.' },
+        { title: 'Educate Girls leads with awards', body: 'Credibility arrives before the ask.' },
+        { title: 'She’s the First names every story', body: 'A name and a region make a quote feel real in five words.' },
+      ] },
+      { type: 'text', label: 'The turn', heading: 'I went in to make it look professional. I came out with one argument.', body: [
+        'The best sites said “you help a girl”. Ours said “we teach, we deliver, we reach”, and mentioned AI once. The site’s job became one argument: the AI future needs every girl in it, and the visitor is part of delivering it.',
+        'The audience order turned too. Our strategy ranked individual donors first. By the time we wrote the homepage, CSR partners came first, donors second and volunteers third.',
+      ] },
+      { type: 'fork', label: 'Fork 1 · The build', options: [
+        { title: 'Webflow', body: 'The original plan. Free nonprofit plan and a CMS, but no write API, so every change was still made by hand.' },
+        { title: 'A Lovable prototype', body: 'The fastest route to a working homepage, but a prototype, not a codebase to extend page by page.' },
+        { title: 'Next.js in Claude Code', body: 'Full control, every change reviewable in git, live in minutes. No CMS, so teammates can’t edit copy themselves.', chosen: true },
+      ], verdict: 'The bottleneck wasn’t design tooling. It was how fast a confirmed decision became a live page. Every line of copy sits in one typed file, so a CMS can come later without touching components.' },
+      { type: 'media', label: 'Fork 2 · The homepage', heading: 'The homepage is a menu, not a brochure.', body: [
+        'The first draft explained everything. Now each section gets a headline, a line or two and one call to action to its own page. The cost: less detail for anyone who never clicks.',
+      ], image: { src: '/work/go-girl-organisation/programmes.webp', ratio: '1800/1369', alt: 'Four programmes, one mission: Digital and AI literacy, STEM tutoring, Project EmpowerED and English classes', caption: 'Four programmes, each a signpost to its own page.' } },
+      { type: 'media', flip: true, label: 'Fork 3 · The first scroll', heading: 'CSR partners get the first scroll.', body: [
+        'UN, TEDx, Times of India, Logitech, Z Zurich and She The People sit right under the hero buttons. The CSR pitch names Logitech and Z Zurich instead of saying “your CSR budget can fund…”.',
+      ], image: { src: '/work/go-girl-organisation/csr.webp', ratio: '1800/996', alt: 'Work with us: two corporate partners are already running Go Girl programmes, and here’s what they get', caption: 'Named partners and what a partner gets, before any ask.' } },
+      { type: 'fork', label: 'Who comes first', options: [
+        { title: 'Individual donors', body: 'The most people, and story-led copy works. But gifts are small, and trust signals get pushed down.' },
+        { title: 'CSR partners', body: 'Named partners and reports up front. One partnership funds a year-long programme.', chosen: true },
+      ], verdict: 'Trust signals moved above the fold for everyone, and the donor path stays one click away in the nav and the hero.' },
+      { type: 'list', label: 'Fork 4 · The headline', heading: 'Four headlines died so one could live.', items: [
+        { title: '“Every girl deserves a seat at the digital table.”', body: 'The old site. Passive: “deserves” asks for something that hasn’t happened.' },
+        { title: '“Girls shouldn’t just use the future. They should build it.”', body: 'Strong, but it didn’t name AI, the thing that sets us apart.' },
+        { title: '“The AI era is already here. Most girls in India won’t be part of it. We’re changing that.”', body: 'Best for donors, but three sentences is too long for a typographic hero.' },
+        { title: '“Started by a girl who was the only one in the room.”', body: 'Great for press, weakest for funders who want proof fast.' },
+        { title: '“The AI future needs every girl in it.” Live.', body: 'Names AI, includes every girl, and makes the visitor’s role obvious without saying donate.' },
+      ] },
+      { type: 'fork', label: 'Fork 5 · The number', options: [
+        { title: '“Girls reached”', body: 'Bigger and more on-brand, but about 70 to 80% of our students are girls, so it overcounts.' },
+        { title: '“Students reached”', body: 'Accurate, for every cumulative total on the Impact page.', chosen: true },
+      ], verdict: 'A slightly less emotional label for a number that survives a funder’s question.' },
+      { type: 'quote', text: 'Growing fast. Bigger mission.', by: 'The new stats headline, replacing “Small numbers, big swings”' },
+      { type: 'media', label: 'The win wall', heading: 'Proof pinned, not listed.', body: [
+        'Wins pinned like a scrapbook: Japnit at the UN, a new smart classroom, a She’s the First cohort in Nairobi. The milestones end in “the next win could be hers”, which links to donate.',
+      ], image: { src: '/work/go-girl-organisation/win-wall.webp', ratio: '1800/1440', alt: 'Wins worth pinning: photos, press mentions, 3 countries and a milestone timeline pinned like a scrapbook', caption: 'A win wall instead of a logo grid.' } },
+      { type: 'media', flip: true, label: 'Two doors', heading: 'Two ways to give, both one click from the hero.', body: [
+        'Indian donors go to Razorpay, with the 80G tax benefit next to the button. International donors get a Zeffy link through the Canadian entity, right under the hero instead of in an FAQ.',
+      ], image: { src: '/work/go-girl-organisation/donate.webp', ratio: '1800/785', alt: 'Your support opens the AI world for a girl: ₹500 funds 3 months of tutoring, 80G tax deductible, Donate now', caption: 'The donate band, with the route for donors outside India under the button.' } },
+      { type: 'media', label: 'Transparency', heading: 'Every annual report, one click away.', body: [
+        'Reports from 2018 to 2025 download from the homepage and the Impact page, with 2022 marked coming soon instead of linking to nothing. Four legal pages were written for India’s DPDPA 2023 and Alberta’s PIPA.',
+      ], items: [
+        { title: 'Content as data', body: 'Every line of copy and every number sits in one typed file, so a copy edit is one line.' },
+        { title: 'Built for AI search', body: 'Keyword-led titles, FAQs written as direct answers, and Impact data in a real table with a last-updated date.' },
+      ], image: { src: '/work/go-girl-organisation/reports.webp', ratio: '1800/1645', alt: 'Go Girl through the years: annual reports from 2018 to 2025, each with a download link, 2022 marked coming soon', caption: 'Seven years of reports, and an honest gap for 2022.' } },
+      { type: 'media', flip: true, label: 'A second brand', heading: 'One site, two voices.', body: [
+        'The Community page is its own sub-brand: its own logo, a lowercase voice, a Luma events calendar and a join form. The site holds both audiences without forcing one voice on both.',
+      ], image: { src: '/work/go-girl-organisation/community.webp', ratio: '1800/1175', alt: 'The Go Girl Community page: women building in tech, together', caption: 'Go Girl Community, under the same roof.' } },
+      { type: 'media', label: 'What broke', heading: 'The site shipped faster than the facts behind it.', body: [
+        'Most trust signals depend on facts only the founder can confirm. I flagged each one and sent it to Japnit, so pages kept moving instead of waiting line by line. It worked for speed, and some of the site went live before every fact was settled.',
+      ], items: [
+        { title: 'Numbers drifted', body: 'The homepage says 3,000+ girls, the Impact page 2,251 students, the mastersheet 2,426. Each came from a real source at a different moment.' },
+        { title: 'A placeholder quote went live', body: 'The tutor quote on the homepage was a stand-in for a real one.' },
+        { title: 'Fewer pages shipped', body: 'Home, Impact, Community and the legal pages are live. About and Collabs are homepage sections, and Donate goes straight to Razorpay.' },
+        { title: 'Tooling walls', body: 'Drive permissions blocked the report PDFs for weeks, so we hosted them on the site.' },
+      ], image: { src: '/work/go-girl-organisation/stats.webp', ratio: '1800/1605', alt: 'Growing fast, bigger mission: 3,000+ girls reached, 1,372 classes delivered, 60K community followers, 7 years running', caption: 'The homepage counter still says “girls reached”.' } },
+      { type: 'media', flip: true, label: 'Proof', heading: 'What I can prove today is structural, not behavioural.', body: [
+        'These are changes anyone can check by opening the old site and the new one. I don’t have before-and-after behavioural data yet, and I won’t imply that I do.',
+      ], items: [
+        { title: 'Works on a phone', body: 'The old site broke below 480px.' },
+        { title: 'The nav goes where it says', body: 'Home, Impact and Community are real pages. About and Collabs are section anchors.' },
+        { title: 'Donating is one click', body: 'From the hero and the nav, with routes for India and abroad.' },
+        { title: 'Trust is on the page', body: 'Section 8 and Alberta NPO status in the footer, partner logos under the hero.' },
+        { title: 'Volunteering has roles', body: 'Two role cards with hours and what you get, instead of one vague “Join Us”.' },
+      ], image: { src: '/work/go-girl-organisation/phone-home.webp', ratio: '780/1688', phone: true, alt: 'The Go Girl homepage on a phone: The AI future needs every girl in it, with Donate now', caption: 'The live homepage at 390px wide.' } },
+      { type: 'list', label: 'What’s next', heading: 'One source of truth, then measure.', items: [
+        { title: 'Lock the numbers', body: 'The mastersheet becomes the only source for every stat on the site.' },
+        { title: 'Ship the missing pages', body: 'Donate, Join Us with its role finder, Collabs, About and AI Days.' },
+        { title: 'Get found by AI tools', body: 'Wikidata first, then Crunchbase and GiveIndia.' },
+      ] },
+      { type: 'text', label: 'Next time', heading: 'I’d install analytics before touching anything.', body: [
+        'Two weeks of data on the old site would have given the redesign a baseline to beat. I’d also lock the stats before the first headline, and talk to three CSR managers and five past donors before reordering the homepage around them.',
+      ] },
+      { type: 'text', label: 'What it taught me', heading: 'A nonprofit website is a trust problem with a design surface.', body: [
+        'The decisions that mattered most weren’t visual: which audience sees the first scroll, which number we’ll defend and which headline we’ll kill.',
       ] },
     ],
   },
