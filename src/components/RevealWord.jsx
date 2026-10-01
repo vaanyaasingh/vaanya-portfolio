@@ -3,8 +3,9 @@ import { createPortal } from 'react-dom';
 import { useFinePointer, prefersReducedMotion } from '../lib/motion.js';
 
 /* Hover a word → a tilted polaroid follows the pointer. Portalled so transforms
-   on ancestors can't trap the fixed positioning. Plain styled word on touch. */
-export function RevealWord({ children, tone = 'peach', image, caption, rotate = -4 }) {
+   on ancestors can't trap the fixed positioning. Plain styled word on touch.
+   `as` + `className` let a whole row (e.g. a list item) carry the same hover. */
+export function RevealWord({ children, tone = 'peach', image, caption, rotate = -4, as: Tag = 'span', className = 'rw', style }) {
   const fine = useFinePointer();
   const card = useRef(null);
   const [on, setOn] = useState(false);
@@ -27,7 +28,7 @@ export function RevealWord({ children, tone = 'peach', image, caption, rotate = 
 
   const enter = (ev) => { pos.current = { x: ev.clientX, y: ev.clientY, cx: ev.clientX, cy: ev.clientY }; setOn(true); };
   return (
-    <span className="rw" onMouseEnter={fine ? enter : undefined} onMouseMove={fine ? (ev) => { pos.current.x = ev.clientX; pos.current.y = ev.clientY; } : undefined} onMouseLeave={() => setOn(false)}>
+    <Tag className={className} style={style} onMouseEnter={fine ? enter : undefined} onMouseMove={fine ? (ev) => { pos.current.x = ev.clientX; pos.current.y = ev.clientY; } : undefined} onMouseLeave={() => setOn(false)}>
       {children}
       {fine && createPortal(
         <span ref={card} className={'rw__card' + (on ? ' is-on' : '')} style={{ '--rw-bg': `var(--${tone})` }} aria-hidden="true">
@@ -38,6 +39,6 @@ export function RevealWord({ children, tone = 'peach', image, caption, rotate = 
         </span>,
         document.body
       )}
-    </span>
+    </Tag>
   );
 }

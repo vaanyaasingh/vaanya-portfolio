@@ -370,6 +370,8 @@ a:hover>.roll>span:last-child{transform:none}
 .job:hover .job__role{transform:translateX(6px)}
 .panel .hat{opacity:0;transform:translateX(-12px);transition:opacity var(--dur-slow) var(--ease-out),transform var(--dur-slow) var(--ease-out);transition-delay:calc(250ms + var(--i) * 80ms)}
 .panel.is-in .hat{opacity:1;transform:none}
+.hat.has-photo .hat__title{transition:color var(--dur-fast)}
+.hat.has-photo:hover .hat__title{font-style:italic}
 
 /* Boards: a pastel mesh card that drifts under its own grain */
 .board{position:relative;overflow:hidden;isolation:isolate;padding:clamp(24px,4vw,40px);border-radius:var(--radius-lg);box-shadow:var(--shadow-soft)}

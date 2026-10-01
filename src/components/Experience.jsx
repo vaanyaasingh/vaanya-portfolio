@@ -1,4 +1,5 @@
 import { Media } from './Media.jsx';
+import { RevealWord } from './RevealWord.jsx';
 import { Tag } from './Tag.jsx';
 import { Reveal } from './Reveal.jsx';
 import { SectionHead } from './SectionHead.jsx';
@@ -42,12 +43,18 @@ export function GoGirl({ label }) {
             <div className="panel__title">{org.title[0]}<em>{org.title[1]}</em></div>
           </div>
           <ol className="hats">
-            {org.hats.map((h, i) => (
-              <li key={h.n} className="hat" style={{ '--i': i }}>
-                <span className={'hat__n' + (h.n === 'Now' ? ' is-now' : '')}>{h.n}</span>
-                <div><div className="hat__title">{h.title}</div><div className="hat__note">{h.note}</div></div>
-              </li>
-            ))}
+            {org.hats.map((h, i) => {
+              const inner = (
+                <>
+                  <span className={'hat__n' + (h.n === 'Now' ? ' is-now' : '')}>{h.n}</span>
+                  <div><div className="hat__title">{h.title}</div><div className="hat__note">{h.note}</div></div>
+                </>
+              );
+              // A hat with a photo shows it as a polaroid that follows the pointer, like the hero's words
+              return h.photo
+                ? <RevealWord key={h.n} as="li" className={'hat has-photo'} style={{ '--i': i }} tone="paper-0" image={h.photo} caption={h.caption} rotate={i % 2 ? 4 : -4}>{inner}</RevealWord>
+                : <li key={h.n} className="hat" style={{ '--i': i }}>{inner}</li>;
+            })}
           </ol>
         </Reveal>
         <Reveal className="panel" delay={110} style={{ '--tone': 'var(--peach)' }}>
