@@ -23,100 +23,6 @@
 
 export const projects = [
   {
-    id: 'jobready',
-    // Resume contact details are blurred in the shots.
-    title: 'JobReady',
-    kind: ['Research', 'Designed', 'Coded'],
-    year: '2025',
-    tone: 'peach',
-    gradient: 'dawn',
-    role: 'Team of 3 with Manya Sharma and Aryaki',
-    stack: 'Figma · React · Node.js · MongoDB · LLaMA 3.1',
-    summary: 'Job skills taught in English, Hindi and Kannada, ending in a resume you can send.',
-    hook: 'in your own language',
-    thumb: '/work/jobready/learning.webp',
-    cover: '/work/jobready/landing.webp',
-    coverLaptop: true,   // drawn inside a MacBook
-    coverRatio: '1800/900',
-    coverAlt: 'JobReady landing page: “Learn Skills. Get Jobs.”, available in English, Hindi and Kannada',
-    sections: [
-      { type: 'summary', items: [
-        { k: 'The problem', v: 'Job skill tutorials exist, but most are in English and nobody checks if you understood them.' },
-        { k: 'What we built', v: 'A learning app in English, Hindi and Kannada, with an AI tutor and a resume builder at the end.' },
-        { k: 'For', v: 'First-time job seekers who aren’t comfortable learning in English.' },
-      ] },
-      { type: 'stat', v: '54.81%', k: 'of final-year graduates were found employable in the India Skills Report 2025.', note: 'For women, it dropped to 47.5%.',
-        source: [{ label: 'India Skills Report 2025', href: 'https://taggd.in/industry-reports/isr/india-skills-report-2025/' }] },
-      { type: 'text', label: 'The problem', heading: 'The tutorials exist. Most of them are in English.', body: [
-        'Millions of young people in India want their first job but don’t have the skills employers ask for. Learning online is hard if you’re not comfortable in English, and nobody checks whether you understood.',
-      ] },
-      { type: 'stat', v: '57%', k: 'of urban internet users in India prefer content in Indian languages.', note: '98% access some content in an Indian language.',
-        source: [{ label: 'IAMAI and Kantar, Internet in India 2024', href: 'https://www.businesstoday.in/technology/news/story/indias-internet-revolution-key-insights-from-kantar-and-iamai-report-461043-2025-01-16' }] },
-      { type: 'list', label: 'Competitor analysis', heading: 'Nobody combined learning in your language with something to show an employer.', items: [
-        { title: 'Government schemes', body: 'PMKVY and Skill India have structured courses, but the same course for everyone and little follow-up.' },
-        { title: 'YouTube', body: 'Free and huge, but no structure, no tests, and mostly English.' },
-        { title: 'Local training centres', body: 'Hands-on, but hard to reach and fixed timings.' },
-        { title: 'Job portals', body: 'Naukri, Apna and Indeed list jobs, but don’t teach skills or check what you know.' },
-      ] },
-      { type: 'list', label: 'Personas', heading: 'Two people we designed for.', items: [
-        { title: 'Ravi, 19, Ranchi', body: 'Finished school, helps at his father’s shop, low-end Android phone, limited English. Wants a billing job at a supermarket. Can’t follow English tutorials.' },
-        { title: 'Meena, 32, Kolkata', body: '10th pass, homemaker for ten years. Wants a back-office job to pay for her children’s education. Wants to learn Word and email in simple Hindi. Worried about online scams.' },
-      ] },
-      { type: 'list', label: 'Key insights', heading: 'Three things shaped the design.', items: [
-        { title: 'The content exists, the language doesn’t', body: 'Ravi can find an Excel tutorial in seconds. He just can’t follow it.' },
-        { title: 'Learning needs an outcome', body: 'People want to know what a course gets them. A resume line matters more than another video.' },
-        { title: 'One path, not a catalogue', body: 'A long list of courses is overwhelming if you don’t know where to start.' },
-      ] },
-      { type: 'text', label: 'How might we', heading: 'Help a first-time job seeker learn a skill in their own language, and leave with something to show an employer?', body: [] },
-      { type: 'media', label: 'Decision 1', heading: 'We ask for language first.', body: [
-        'It’s the first step of onboarding. Every screen after it depends on the answer, so it made no sense to ask later.',
-      ], image: { src: '/work/jobready/onboarding-language.webp', laptop: true, ratio: '1800/1130', alt: 'Onboarding step one of four: Preferred language, “Select the language you’re most comfortable learning in”', caption: 'Language is step one of four, before location, education and interests.' } },
-      { type: 'media', flip: true, label: 'Decision 2', heading: 'Three languages, plus Hinglish for the tutor.', body: [
-        'The interface is in English, Hindi and Kannada. The tutor can also answer in Hinglish, because a lot of young people type Hindi in English letters, and formal Hindi can feel like a textbook.',
-      ], image: { src: '/work/jobready/tutor-languages.webp', ratio: '1800/1130', alt: 'The AI tutor’s language menu: English, Hindi, Kannada and Hinglish', caption: 'The tutor’s language menu: English, Hindi, Kannada and Hinglish.' } },
-      { type: 'fork', label: 'Decision 3', options: [
-        { title: 'Google Translate on every screen', body: 'The original plan. Fast, but button labels often come out wrong, and you can’t fix them.' },
-        { title: 'Translation files for the interface', body: 'All interface text in Hindi and Kannada files that can be checked and corrected. Only the tutor’s answers are written live.', chosen: true },
-      ], verdict: 'Text that never changes should be checked by a person. The model only writes what can’t be written in advance.' },
-      { type: 'fork', label: 'Decision 4', options: [
-        { title: 'Job matching first', body: 'In our proposal. But it needs a real job database, which we didn’t have.' },
-        { title: 'Learning first, resume at the end', body: 'Courses, a tutor, and a resume built from finished courses. Useful right away.', chosen: true },
-      ], verdict: 'A resume is something a learner can use this week. Job matching comes once there’s real job data.' },
-      { type: 'media', flip: true, label: 'Self-assessment', heading: 'Eight questions before the first course.', body: [
-        'Right after onboarding, a short self-assessment asks how comfortable you are with computers and communication, to suggest where to start.',
-      ], image: { src: '/work/jobready/self-assessment.webp', ratio: '1800/1130', alt: 'Skill assessment, question 1 of 8: how comfortable are you using a computer?', caption: 'Question one: how comfortable are you on a computer?' } },
-      { type: 'media', label: 'Courses', heading: 'Every course on one page.', body: [
-        'Microsoft Excel, Word and PowerPoint, email, English speaking and customer service, and data entry. Your progress across all of them sits at the top.',
-      ], image: { src: '/work/jobready/learning.webp', laptop: true, ratio: '1800/1130', alt: 'Learning modules: Microsoft skills, email, English speaking and customer service, and data entry, with course progress', caption: 'Five modules to start with, and more that unlock as you go.' } },
-      { type: 'media', flip: true, label: 'Inside a course', heading: 'Three levels, and a tutor on every video.', body: [
-        'Each course splits into beginner, intermediate and advanced. Every video has an AI summary, an Ask Tutor button and a box to tick when you’re done.',
-      ], image: { src: '/work/jobready/course-levels.webp', ratio: '1800/1130', alt: 'Microsoft Skills course with beginner, intermediate and advanced levels, and videos for Excel, Word and PowerPoint', caption: 'Microsoft skills at the beginner level.' } },
-      { type: 'media', label: 'AI tutor', heading: 'Pick a mode, and the tutor stays on the course.', body: [
-        'Learners choose to be tested, get short notes, or ask a doubt. The tutor answers about the course they picked, instead of turning into an open chatbot.',
-      ], items: [
-        { title: 'Quiz, notes or doubt', body: 'Three modes, so you say what kind of help you want.' },
-        { title: 'The course', body: 'Answers stay inside what you’re learning.' },
-        { title: 'The topic', body: 'Narrow it down to one thing, like keyboard shortcuts.' },
-        { title: 'The language', body: 'English, Hindi, Kannada or Hinglish, picked per question.' },
-        { title: 'Five questions', body: 'Each quiz comes with explanations to review.' },
-      ], image: { src: '/work/jobready/tutor-quiz.webp', ratio: '1800/1130', alt: 'AI tutor in quiz mode: five questions on keyboard shortcuts for the Microsoft Skills course', caption: 'Quiz mode on keyboard shortcuts.', pins: [
-        { x: 30, y: 15.4 }, { x: 30, y: 34.7 }, { x: 30, y: 43.5 }, { x: 32, y: 52.6 }, { x: 80, y: 30.8 },
-      ] } },
-      { type: 'media', flip: true, label: 'Resume builder', heading: 'Leave with a resume.', body: [
-        'Skills from finished courses are added automatically. Three templates: modern, minimal and creative.',
-      ], image: { src: '/work/jobready/resume-modern.webp', laptop: true, ratio: '1800/1029', alt: 'Resume builder, modern template: Priya Sharma, data entry and office assistant, with skill bars for Excel, email, typing and Word', caption: 'Priya, a demo learner close to Ravi: 12th pass, looking for her first office job.' } },
-      // Usability testing section goes here once the sessions are done.
-      { type: 'list', label: 'What’s next', heading: 'Where it goes from here.', items: [
-        { title: 'Job matching', body: 'Once there’s a job database to match against.' },
-        { title: 'A real skills test', body: 'To replace the self-assessment.' },
-        { title: 'More languages', body: 'Starting with Bengali.' },
-      ] },
-      { type: 'text', label: 'Reflection', heading: 'Language turned out to be the whole product.', body: [
-        'If I did it again, I’d talk to learners before writing personas, and test the tutor’s Hindi and Kannada answers with native speakers from day one.',
-      ] },
-    ],
-  },
-  {
     id: 'go-girl-community',
     size: 'pill',
     title: 'Go Girl Community',
@@ -422,6 +328,100 @@ export const projects = [
       ] },
       { type: 'text', label: 'Still open', heading: 'Raw score, or high, medium and low?', body: [
         'The question I left open is still the most interesting one in the project. It’s exactly what the sessions should answer.',
+      ] },
+    ],
+  },
+  {
+    id: 'jobready',
+    // Resume contact details are blurred in the shots.
+    title: 'JobReady',
+    kind: ['Research', 'Designed', 'Coded'],
+    year: '2025',
+    tone: 'peach',
+    gradient: 'dawn',
+    role: 'Team of 3 with Manya Sharma and Aryaki',
+    stack: 'Figma · React · Node.js · MongoDB · LLaMA 3.1',
+    summary: 'Job skills taught in English, Hindi and Kannada, ending in a resume you can send.',
+    hook: 'in your own language',
+    thumb: '/work/jobready/learning.webp',
+    cover: '/work/jobready/landing.webp',
+    coverLaptop: true,   // drawn inside a MacBook
+    coverRatio: '1800/900',
+    coverAlt: 'JobReady landing page: “Learn Skills. Get Jobs.”, available in English, Hindi and Kannada',
+    sections: [
+      { type: 'summary', items: [
+        { k: 'The problem', v: 'Job skill tutorials exist, but most are in English and nobody checks if you understood them.' },
+        { k: 'What we built', v: 'A learning app in English, Hindi and Kannada, with an AI tutor and a resume builder at the end.' },
+        { k: 'For', v: 'First-time job seekers who aren’t comfortable learning in English.' },
+      ] },
+      { type: 'stat', v: '54.81%', k: 'of final-year graduates were found employable in the India Skills Report 2025.', note: 'For women, it dropped to 47.5%.',
+        source: [{ label: 'India Skills Report 2025', href: 'https://taggd.in/industry-reports/isr/india-skills-report-2025/' }] },
+      { type: 'text', label: 'The problem', heading: 'The tutorials exist. Most of them are in English.', body: [
+        'Millions of young people in India want their first job but don’t have the skills employers ask for. Learning online is hard if you’re not comfortable in English, and nobody checks whether you understood.',
+      ] },
+      { type: 'stat', v: '57%', k: 'of urban internet users in India prefer content in Indian languages.', note: '98% access some content in an Indian language.',
+        source: [{ label: 'IAMAI and Kantar, Internet in India 2024', href: 'https://www.businesstoday.in/technology/news/story/indias-internet-revolution-key-insights-from-kantar-and-iamai-report-461043-2025-01-16' }] },
+      { type: 'list', label: 'Competitor analysis', heading: 'Nobody combined learning in your language with something to show an employer.', items: [
+        { title: 'Government schemes', body: 'PMKVY and Skill India have structured courses, but the same course for everyone and little follow-up.' },
+        { title: 'YouTube', body: 'Free and huge, but no structure, no tests, and mostly English.' },
+        { title: 'Local training centres', body: 'Hands-on, but hard to reach and fixed timings.' },
+        { title: 'Job portals', body: 'Naukri, Apna and Indeed list jobs, but don’t teach skills or check what you know.' },
+      ] },
+      { type: 'list', label: 'Personas', heading: 'Two people we designed for.', items: [
+        { title: 'Ravi, 19, Ranchi', body: 'Finished school, helps at his father’s shop, low-end Android phone, limited English. Wants a billing job at a supermarket. Can’t follow English tutorials.' },
+        { title: 'Meena, 32, Kolkata', body: '10th pass, homemaker for ten years. Wants a back-office job to pay for her children’s education. Wants to learn Word and email in simple Hindi. Worried about online scams.' },
+      ] },
+      { type: 'list', label: 'Key insights', heading: 'Three things shaped the design.', items: [
+        { title: 'The content exists, the language doesn’t', body: 'Ravi can find an Excel tutorial in seconds. He just can’t follow it.' },
+        { title: 'Learning needs an outcome', body: 'People want to know what a course gets them. A resume line matters more than another video.' },
+        { title: 'One path, not a catalogue', body: 'A long list of courses is overwhelming if you don’t know where to start.' },
+      ] },
+      { type: 'text', label: 'How might we', heading: 'Help a first-time job seeker learn a skill in their own language, and leave with something to show an employer?', body: [] },
+      { type: 'media', label: 'Decision 1', heading: 'We ask for language first.', body: [
+        'It’s the first step of onboarding. Every screen after it depends on the answer, so it made no sense to ask later.',
+      ], image: { src: '/work/jobready/onboarding-language.webp', laptop: true, ratio: '1800/1130', alt: 'Onboarding step one of four: Preferred language, “Select the language you’re most comfortable learning in”', caption: 'Language is step one of four, before location, education and interests.' } },
+      { type: 'media', flip: true, label: 'Decision 2', heading: 'Three languages, plus Hinglish for the tutor.', body: [
+        'The interface is in English, Hindi and Kannada. The tutor can also answer in Hinglish, because a lot of young people type Hindi in English letters, and formal Hindi can feel like a textbook.',
+      ], image: { src: '/work/jobready/tutor-languages.webp', ratio: '1800/1130', alt: 'The AI tutor’s language menu: English, Hindi, Kannada and Hinglish', caption: 'The tutor’s language menu: English, Hindi, Kannada and Hinglish.' } },
+      { type: 'fork', label: 'Decision 3', options: [
+        { title: 'Google Translate on every screen', body: 'The original plan. Fast, but button labels often come out wrong, and you can’t fix them.' },
+        { title: 'Translation files for the interface', body: 'All interface text in Hindi and Kannada files that can be checked and corrected. Only the tutor’s answers are written live.', chosen: true },
+      ], verdict: 'Text that never changes should be checked by a person. The model only writes what can’t be written in advance.' },
+      { type: 'fork', label: 'Decision 4', options: [
+        { title: 'Job matching first', body: 'In our proposal. But it needs a real job database, which we didn’t have.' },
+        { title: 'Learning first, resume at the end', body: 'Courses, a tutor, and a resume built from finished courses. Useful right away.', chosen: true },
+      ], verdict: 'A resume is something a learner can use this week. Job matching comes once there’s real job data.' },
+      { type: 'media', flip: true, label: 'Self-assessment', heading: 'Eight questions before the first course.', body: [
+        'Right after onboarding, a short self-assessment asks how comfortable you are with computers and communication, to suggest where to start.',
+      ], image: { src: '/work/jobready/self-assessment.webp', ratio: '1800/1130', alt: 'Skill assessment, question 1 of 8: how comfortable are you using a computer?', caption: 'Question one: how comfortable are you on a computer?' } },
+      { type: 'media', label: 'Courses', heading: 'Every course on one page.', body: [
+        'Microsoft Excel, Word and PowerPoint, email, English speaking and customer service, and data entry. Your progress across all of them sits at the top.',
+      ], image: { src: '/work/jobready/learning.webp', laptop: true, ratio: '1800/1130', alt: 'Learning modules: Microsoft skills, email, English speaking and customer service, and data entry, with course progress', caption: 'Five modules to start with, and more that unlock as you go.' } },
+      { type: 'media', flip: true, label: 'Inside a course', heading: 'Three levels, and a tutor on every video.', body: [
+        'Each course splits into beginner, intermediate and advanced. Every video has an AI summary, an Ask Tutor button and a box to tick when you’re done.',
+      ], image: { src: '/work/jobready/course-levels.webp', ratio: '1800/1130', alt: 'Microsoft Skills course with beginner, intermediate and advanced levels, and videos for Excel, Word and PowerPoint', caption: 'Microsoft skills at the beginner level.' } },
+      { type: 'media', label: 'AI tutor', heading: 'Pick a mode, and the tutor stays on the course.', body: [
+        'Learners choose to be tested, get short notes, or ask a doubt. The tutor answers about the course they picked, instead of turning into an open chatbot.',
+      ], items: [
+        { title: 'Quiz, notes or doubt', body: 'Three modes, so you say what kind of help you want.' },
+        { title: 'The course', body: 'Answers stay inside what you’re learning.' },
+        { title: 'The topic', body: 'Narrow it down to one thing, like keyboard shortcuts.' },
+        { title: 'The language', body: 'English, Hindi, Kannada or Hinglish, picked per question.' },
+        { title: 'Five questions', body: 'Each quiz comes with explanations to review.' },
+      ], image: { src: '/work/jobready/tutor-quiz.webp', ratio: '1800/1130', alt: 'AI tutor in quiz mode: five questions on keyboard shortcuts for the Microsoft Skills course', caption: 'Quiz mode on keyboard shortcuts.', pins: [
+        { x: 30, y: 15.4 }, { x: 30, y: 34.7 }, { x: 30, y: 43.5 }, { x: 32, y: 52.6 }, { x: 80, y: 30.8 },
+      ] } },
+      { type: 'media', flip: true, label: 'Resume builder', heading: 'Leave with a resume.', body: [
+        'Skills from finished courses are added automatically. Three templates: modern, minimal and creative.',
+      ], image: { src: '/work/jobready/resume-modern.webp', laptop: true, ratio: '1800/1029', alt: 'Resume builder, modern template: Priya Sharma, data entry and office assistant, with skill bars for Excel, email, typing and Word', caption: 'Priya, a demo learner close to Ravi: 12th pass, looking for her first office job.' } },
+      // Usability testing section goes here once the sessions are done.
+      { type: 'list', label: 'What’s next', heading: 'Where it goes from here.', items: [
+        { title: 'Job matching', body: 'Once there’s a job database to match against.' },
+        { title: 'A real skills test', body: 'To replace the self-assessment.' },
+        { title: 'More languages', body: 'Starting with Bengali.' },
+      ] },
+      { type: 'text', label: 'Reflection', heading: 'Language turned out to be the whole product.', body: [
+        'If I did it again, I’d talk to learners before writing personas, and test the tutor’s Hindi and Kannada answers with native speakers from day one.',
       ] },
     ],
   },
