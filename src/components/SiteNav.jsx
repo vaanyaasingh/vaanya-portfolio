@@ -94,7 +94,7 @@ export function SiteNav() {
         <div className="menu__foot" style={{ '--i': site.nav.length }}>
           <span className="menu__status"><span className="status-dot" />{site.status}</span>
           <div className="menu__socials">
-            {site.socials.map((s) => <a key={s.label} href={s.href} target="_blank" rel="noreferrer" tabIndex={open ? 0 : -1}>{s.label} ↗</a>)}
+            {site.socials.map((s) => <a key={s.label} href={s.href} target="_blank" rel="noreferrer" tabIndex={open ? 0 : -1}>{s.label} ↗︎</a>)}
           </div>
         </div>
       </div>

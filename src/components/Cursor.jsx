@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useFinePointer, prefersReducedMotion } from '../lib/motion.js';
 
 /*
-  Lagging dot → ring over links → labelled disc over [data-cursor="Label"].
+  Lagging dot →︎ ring over links →︎ labelled disc over [data-cursor="Label"].
   Flips to paper colour inside [data-cursor-theme="light"] (dark panels).
   Mounted only for fine pointers; touch devices keep their native behaviour.
 */

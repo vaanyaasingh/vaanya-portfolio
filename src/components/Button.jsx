@@ -4,7 +4,7 @@ import { hasFinePointer, prefersReducedMotion } from '../lib/motion.js';
 
 /*
   variant: primary | outline | soft | ghost · size: sm | md | lg
-  to → internal (curtain), href → external, otherwise <button>.
+  to →︎ internal (curtain), href →︎ external, otherwise <button>.
   Filled buttons are gently magnetic on fine pointers.
 */
 export function Button({ variant = 'primary', size = 'md', arrow = false, to, href, magnetic = variant !== 'ghost', className = '', children, ...rest }) {
@@ -20,7 +20,7 @@ export function Button({ variant = 'primary', size = 'md', arrow = false, to, hr
   const inner = (
     <>
       <span className="btn__label">{children}</span>
-      {arrow && <span className="btn__arrow" aria-hidden="true">↗</span>}
+      {arrow && <span className="btn__arrow" aria-hidden="true">↗︎</span>}
     </>
   );
   const common = { ref, className: cls, onMouseMove: onMove, onMouseLeave: onLeave, ...rest };

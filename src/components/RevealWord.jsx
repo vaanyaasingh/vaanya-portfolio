@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useFinePointer, prefersReducedMotion } from '../lib/motion.js';
 
-/* Hover a word → a tilted polaroid follows the pointer. Portalled so transforms
+/* Hover a word →︎ a tilted polaroid follows the pointer. Portalled so transforms
    on ancestors can't trap the fixed positioning. Plain styled word on touch.
    `as` + `className` let a whole row (e.g. a list item) carry the same hover. */
 export function RevealWord({ children, tone = 'peach', image, caption, rotate = -4, as: Tag = 'span', className = 'rw', style }) {

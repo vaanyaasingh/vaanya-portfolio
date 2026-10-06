@@ -123,7 +123,7 @@ export const heroNow = [
 export const puzzle = {
   note: 'I play sudoku daily and Wordle religiously, so here’s a small one. Every row, column and square gets each of four things I love, once.',
   symbols: [
-    { name: 'piano', glyph: '♪', tone: 'lilac', line: 'trained pianist.' },
+    { name: 'piano', glyph: '♪︎', tone: 'lilac', line: 'trained pianist.' },
     { name: 'matcha', glyph: '◐', tone: 'mint', line: 'daily, non-negotiable.' },
     { name: 'squash', glyph: '●', tone: 'peach', line: 'played it nationally.' },
     { name: 'crochet', glyph: '∞', tone: 'rose', line: 'how I think with my hands.' },

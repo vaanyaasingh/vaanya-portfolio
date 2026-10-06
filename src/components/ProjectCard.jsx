@@ -37,7 +37,7 @@ export function ProjectCard({ project, index, pill = false }) {
     : { to: `/work/${id}`, label: title, ref, 'data-cursor': 'View', style: { '--tone': `var(--${tone})` }, onMouseMove: move, onMouseLeave: leave };
   const end = soon
     ? <span className="card__soon"><span className="tag__dot" aria-hidden="true" />{comingSoon.tag}</span>
-    : <span className="card__arrow" aria-hidden="true">↗</span>;
+    : <span className="card__arrow" aria-hidden="true">↗︎</span>;
 
   if (pill) return (
     <Root {...common} className={'card card--pill' + (soon ? ' card--soon' : '')}>

@@ -59,14 +59,14 @@ export function Contact({ asHero = false }) {
           </Reveal>
           <Reveal delay={250} className="contact__links">
             {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}
-            {site.socials.map((s) => <a key={s.label} href={s.href} target="_blank" rel="noreferrer">{s.label} <span aria-hidden="true">↗</span></a>)}
+            {site.socials.map((s) => <a key={s.label} href={s.href} target="_blank" rel="noreferrer">{s.label} <span aria-hidden="true">↗︎</span></a>)}
           </Reveal>
         </div>
 
         <Reveal delay={120} className="contact__card">
           {status === 'sent' ? (
             <div className="contact__thanks" role="status">
-              <span className="contact__thanks-mark" aria-hidden="true">✳</span>
+              <span className="contact__thanks-mark" aria-hidden="true">✳︎</span>
               <p>Thank you{form.name ? ', ' + form.name.split(' ')[0] : ''}. I’ll write back soon.</p>
               <Button variant="ghost" onClick={() => { setForm({ name: '', email: '', message: '', company: '' }); setStatus('idle'); }}>Send another</Button>
             </div>

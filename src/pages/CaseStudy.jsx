@@ -118,7 +118,7 @@ function Section({ s, tone, n }) {
               <a key={it.src} href={it.src} target="_blank" rel="noreferrer" className="cs-scatter__item" data-cursor="Open"
                 style={{ '--x': it.x + '%', '--y': it.y + '%', '--w': it.w + '%', '--r': (it.r || 0) + 'deg' }}>
                 <img src={it.src} alt={it.alt} loading="lazy" decoding="async" />
-                <span className="cs-scatter__pill">{it.caption} <span aria-hidden="true">↗</span></span>
+                <span className="cs-scatter__pill">{it.caption} <span aria-hidden="true">↗︎</span></span>
               </a>
             ))}
           </div>
@@ -145,7 +145,7 @@ function Section({ s, tone, n }) {
             {s.note && <p className="cs-stat__note">{s.note}</p>}
             {s.source && (
               <p className="cs-stat__source">
-                {s.source.map((src) => <a key={src.href} className="label" href={src.href} target="_blank" rel="noreferrer">{src.label} ↗</a>)}
+                {s.source.map((src) => <a key={src.href} className="label" href={src.href} target="_blank" rel="noreferrer">{src.label} ↗︎</a>)}
               </p>
             )}
           </div>
@@ -305,7 +305,7 @@ export default function CaseStudy() {
   return (
     <article className="cs wrap">
       <Progress />
-      <div className="rise" style={{ '--d': '0ms' }}><Button variant="ghost" to="/" label="Work">← All work</Button></div>
+      <div className="rise" style={{ '--d': '0ms' }}><Button variant="ghost" to="/" label="Work">←︎ All work</Button></div>
       <div className="tags rise" style={{ '--d': '60ms' }}>
         {kindsOf(p).map((k) => <Tag key={k} tone={p.tone}>{k}</Tag>)}<Tag>{p.year}</Tag>
         {p.placeholder && <Tag dot>Case study in progress</Tag>}
@@ -341,7 +341,7 @@ export default function CaseStudy() {
       {next && next.id !== p.id && (
         <TLink to={`/work/${next.id}`} label={next.title} className="cs-next" data-cursor="Next" style={{ '--tone': `var(--${next.tone})` }}>
           <span className="label">Next project</span>
-          <span className="cs-next__title">{next.title} <span className="cs-next__arrow">↗</span></span>
+          <span className="cs-next__title">{next.title} <span className="cs-next__arrow">↗︎</span></span>
         </TLink>
       )}
     </article>

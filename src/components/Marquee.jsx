@@ -41,7 +41,7 @@ export function Marquee({ items = [], speed = 60, size = 56 }) {
         {row.map((t, i) => (
           <Fragment key={i}>
             <span className={'marquee__item' + (i % 2 ? ' is-display' : ' is-italic')}>{t}</span>
-            <span className="marquee__star" style={{ color: DOTS[i % 4] }}>✳</span>
+            <span className="marquee__star" style={{ color: DOTS[i % 4] }}>✳︎</span>
           </Fragment>
         ))}
       </div>

@@ -11,7 +11,7 @@ export function Footer() {
       </span>
       <span className="footer__right">
         <span>{site.location}</span>
-        <button type="button" className="footer__top" onClick={() => scrollTo(0)}>Back to top ↑</button>
+        <button type="button" className="footer__top" onClick={() => scrollTo(0)}>Back to top ↑︎</button>
       </span>
     </footer>
   );

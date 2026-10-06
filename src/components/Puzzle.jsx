@@ -67,7 +67,7 @@ export function Puzzle() {
         </div>
         <div className="puzzle__foot">
           <span className={'label puzzle__status' + (ok ? ' is-ok' : ok === false ? ' is-no' : '')} aria-live="polite">
-            {ok && <span className="puzzle__star" aria-hidden="true">✳</span>}{status}
+            {ok && <span className="puzzle__star" aria-hidden="true">✳︎</span>}{status}
           </span>
           <Button variant="ghost" size="sm" onClick={() => setGrid(EMPTY)}>Reset</Button>
         </div>
