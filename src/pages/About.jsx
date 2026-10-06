@@ -7,7 +7,7 @@ import { Button } from '../components/Button.jsx';
 import { SectionHead } from '../components/SectionHead.jsx';
 import { Shelf } from '../components/Shelf.jsx';
 import { Puzzle } from '../components/Puzzle.jsx';
-import { site, cv, offTheClock, offClockTeaser, aboutIntro } from '../data/site.js';
+import { site, cv, offTheClock, offClockTeaser, aboutIntro, portrait } from '../data/site.js';
 import { useTitle } from '../lib/useTitle.js';
 
 const CvButton = (props) => <Button href={cv} target="_blank" {...props}>{props.children}</Button>;
@@ -16,15 +16,20 @@ export default function About() {
   useTitle('About');
   return (
     <>
+      <section className="sec wrap" aria-label="The shelf">
+        <SectionHead label="01 · The shelf" parts={['Things on', { text: 'my shelf', style: 'italic' }]} note="Hover or tap an object for its story. Plus what I’m into right now." />
+        <Reveal><Shelf /></Reveal>
+      </section>
+
       <section className="ab-intro wrap">
         <div className="ab-intro__text">
           <div className="tags rise" style={{ '--d': '0ms' }}><Tag tone="ink">About</Tag><Tag>{site.location}</Tag></div>
-          <MixedHeadline size="var(--type-display)" delay={80} parts={['Half', { text: 'designer,', style: 'italic' }, { br: true }, 'half', { text: 'engineer', style: 'highlight', tone: 'mint' }]} />
+          <MixedHeadline size="var(--type-display)" delay={80} parts={['Code, people,', { br: true }, 'and', { text: 'everything', style: 'italic' }, 'in', { text: 'between', style: 'highlight', tone: 'mint' }]} />
           <div className="ab-intro__lead rise" style={{ '--d': '420ms' }}>
             {aboutIntro.map((p, i) => (
               <p key={i} className="lead">
                 {p.text}
-                {p.word && <>{' '}<RevealWord tone="butter" caption={p.caption}>{p.word}</RevealWord>{p.after}</>}
+                {p.word && <>{' '}<RevealWord tone="butter" caption={p.caption} image={p.image}>{p.word}</RevealWord>{p.after}</>}
               </p>
             ))}
           </div>
@@ -34,14 +39,9 @@ export default function About() {
           </div>
         </div>
         <figure className="ab-portrait rise rise--img" style={{ '--d': '300ms' }}>
-          <Media tone="rose" ratio="4/5" label="portrait" radius="var(--radius-lg)" className="ab-portrait__img" />
-          <figcaption className="label">Me, probably holding a matcha</figcaption>
+          <Media src={portrait.src} alt={portrait.alt} tone="rose" ratio="4/5" label="portrait" radius="var(--radius-lg)" className="ab-portrait__img" />
+          <figcaption className="label">{portrait.caption}</figcaption>
         </figure>
-      </section>
-
-      <section className="sec wrap" aria-label="The shelf">
-        <SectionHead label="01 · The shelf" parts={['Things on', { text: 'my shelf', style: 'italic' }]} note="Hover or tap an object for its story. Plus what I’m into right now." />
-        <Reveal><Shelf /></Reveal>
       </section>
 
       <section className="sec wrap" aria-label="Mini game">

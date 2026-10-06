@@ -17,6 +17,8 @@
   Images go in /public/work/<id>/… and are referenced as '/work/<id>/file.jpg'.
   Omit `src` and a hatched placeholder in the project's tone is drawn instead.
   `placeholder: true` shows a small "draft" note on the case study page.
+  `comingSoon: true` keeps the card in the grid with a "Coming soon" pill instead
+  of the arrow, makes it unclickable, and blocks the case study page.
   `size: 'pill'` shows the project as a compact pill under the big cards
   (for smaller / side projects). Everything else is a big card.
 */
@@ -259,6 +261,7 @@ export const projects = [
     coverAlt: 'Three screens: the attention feed, a stock with its “since you last checked” reason, and the watchlist',
     // TODO(Vaanya): after the user sessions, add the research, the turn, proof and the reflection.
     placeholder: true,
+    comingSoon: true,
     sections: [
       { type: 'summary', items: [
         { k: 'The problem', v: 'Most investors open the app after days away. A list of every red number can push a nervous one to sell.' },
@@ -333,6 +336,7 @@ export const projects = [
   },
   {
     id: 'jobready',
+    size: 'pill',
     // Resume contact details are blurred in the shots.
     title: 'JobReady',
     kind: ['Research', 'Designed', 'Coded'],
@@ -438,11 +442,11 @@ export const projects = [
     summary: 'A freelance job-matching prototype, built solo over New Year 2024.',
     hook: 'a week-long build',
     placeholder: true,
+    comingSoon: true,
     sections: [{ type: 'text', label: 'The idea', body: ['A freelance platform that matches people to projects by skills, rate and experience, trained on public job listings. Built solo in a week, from 27 December 2024 to 2 January 2025.'] }],
   },
   {
     id: 'go-girl-organisation',
-    size: 'pill',
     title: 'Go Girl Organisation',
     kind: ['Research', 'Designed', 'Coded'],
     year: '2026',

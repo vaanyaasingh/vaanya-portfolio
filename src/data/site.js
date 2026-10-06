@@ -18,11 +18,13 @@ export const site = {
 
 /* ---- About page ---- */
 
-// Intro under the headline. `word` gets the hover polaroid (RevealWord) with `caption`.
+// Intro under the headline. `word` gets the hover polaroid (RevealWord) with `caption` and `image`.
 export const aboutIntro = [
-  { text: 'I’ve always loved building: the small thrill of code that finally runs. But I’ve loved the part after just as much: shaping a product until it feels good in someone’s hands, so that using it leaves them a little happier than before.' },
-  { text: 'So I stopped choosing. If products exist for the people who use them, then how they’re built and how they feel are the same question. I work in the', word: 'mid-way', caption: 'Where I live', after: ', where both get to matter.' },
+  { text: 'I love building creative solutions, and the small thrill of code that finally runs. But I love the part after just as much: shaping a product until it feels good in someone’s hands, so that using it leaves them a little happier than before.' },
+  { text: 'So I stopped choosing. If products exist for the people who use them, then how they’re built and how they feel are the same question. I work in the', word: 'mid-way', caption: 'Where I live', image: '/about/desk.webp', after: ', where both get to matter.' },
 ];
+
+export const portrait = { src: '/about/portrait.webp', alt: 'Vaanya smiling inside a giant phone frame at a Google Cloud event, surrounded by coding signs', caption: 'Me, at a Google Cloud event' };
 
 // Put the PDF at public/Vaanya-Singh-CV.pdf.
 export const cv = '/Vaanya-Singh-CV.pdf';
@@ -52,7 +54,7 @@ export const goGirl = {
     title: ['Girls’ digital education, ', 'India & Canada'],
     hats: [
       { n: '01', title: 'Volunteer teacher', note: 'Taught kids to code in Ranchi.', photo: '/about/gogirl/teaching.webp', caption: 'Teaching a class · 2022' },
-      { n: '02', title: 'Programme manager', note: 'Ran programmes in Haryana and Punjab.', photo: '/about/gogirl/online-class.webp', caption: 'GoGirl x JIVAM, online · 2024' },
+      { n: '02', title: 'Programme manager', note: 'Ran programmes in Haryana and Punjab.', photo: '/about/gogirl/classroom.webp', caption: 'In the classroom' },
       { n: '03', title: 'First donor acquisitions manager', note: 'Created the role; ran Friendsgiving.', photo: '/about/gogirl/booth.webp', caption: 'Our booth · 2024' },
       { n: '04', title: 'Website, designed & built', note: 'Figma to React, with Razorpay donations. Rebuilt sign-up flows; completion rose 40%.', photo: '/work/go-girl-organisation/home.webp', caption: 'gogirlorganisation.com' },
       { n: 'Now', title: 'Leading the brand restructure', note: 'New guidelines, a new voice, one organisation.' },
@@ -62,7 +64,8 @@ export const goGirl = {
     meta: 'Go Girl Community · Co-founder · 2024 to now',
     title: ['A room for Gen Z women ', 'in tech'],
     body: 'A women in tech community I co-founded with Japnit and Aqsa at the end of 2024. We host meetups and workshops, and I built the brand from nothing: name, voice, visuals and every channel.',
-    photo: '', // e.g. '/about/ggc.jpg' in public/
+    photo: '/about/ggc.webp',
+    photoAlt: 'Go Girl Community members on a pickleball court, holding paddles',
     stats: [{ v: '1000+', k: 'Women in the community' }, { v: '30+', k: 'Channels' }],
   },
 };
@@ -88,7 +91,7 @@ export const shelf = [
   { name: 'Matcha', tone: 'mint', src: '/about/shelf/matcha.webp', story: 'Matcha, every day. The whisking is half the point.' },
   { name: 'Crochet yarn', tone: 'rose', src: '/about/shelf/crochet.webp', story: 'Crochet is how I think with my hands.' },
   { name: 'Current read', tone: 'mint', src: '/about/shelf/book.webp', story: 'Always mid-book. Sometimes three.' },
-  { name: 'Passport', tone: 'sky', src: '/about/shelf/passport.webp', story: '[One line about travel]' }, // TODO(Vaanya): the story
+  { name: 'Passport', tone: 'sky', src: '/about/shelf/passport.webp', story: 'I like to see a city like I live there, not like a tourist.' },
   { name: 'Earphones', tone: 'lilac', src: '/about/shelf/earphones.webp', story: 'Always in. All kinds of music, honestly.' },
   { name: 'Concert tickets', tone: 'lilac', src: '/about/shelf/concert-tickets.webp', story: 'Any genre, any city. I’ll be near the front.' },
   { name: 'Calligraphy', tone: 'butter', src: '/about/shelf/calligraphy.webp', story: 'Calligraphy taught me that spacing is a design decision.' },
@@ -97,18 +100,24 @@ export const shelf = [
   { name: 'Rajma chawal', tone: 'peach', src: '/about/shelf/rajma-chawal.webp', story: 'Favourite food, no contest. Still, take me somewhere new.' },
 ];
 
-// TODO(Vaanya): fill the [brackets].
 export const currently = {
-  updated: 'Sep 2026',
+  updated: 'Oct 2026',
   items: [
-    { k: 'Reading', v: '[Book title]', note: '[Author]', tone: 'paper-0' },
-    { k: 'On repeat', v: '[Song]', note: '[Artist]. All kinds of music, honestly.', tone: 'lilac' },
-    { k: 'Drinking', v: 'Matcha, obviously', note: '[Current favourite café]', tone: 'mint' },
-    { k: 'Watching', v: '[Film]', note: '[One-line verdict]', tone: 'paper-0' },
-    { k: 'Making', v: '[Crochet project]', note: 'Hobby maxxing, week [n]', tone: 'butter' },
-    { k: 'Next concert', v: '[Artist, city]', note: '[Date]', tone: 'peach' },
+    { k: 'Reading', v: 'Murdoku', note: 'M. Garand', tone: 'paper-0' },
+    { k: 'On repeat', v: 'Fred again..', note: 'All kinds of music, honestly.', tone: 'lilac' },
+    { k: 'Drinking', v: 'Matcha, obviously', note: 'Favourite café: Turtle Matcha, Bengaluru', tone: 'mint' },
+    { k: 'Watching', v: 'Minions & Monsters', note: '', tone: 'paper-0' },
+    { k: 'Making', v: 'Crochet', note: 'A birthday gift for my roommate.', tone: 'butter' },
+    { k: 'Next concert', v: 'Fred again..', note: 'Bengaluru', tone: 'peach' },
   ],
 };
+
+// "Currently" tags under the home hero. `dot` marks the live one.
+export const heroNow = [
+  { label: 'AI intern · WorkOnGrid', dot: true },
+  { label: 'Design lead · Go Girl' },
+  { label: 'Final year · RVCE' },
+];
 
 /* ---- About: the mini game (from "Off the Clock.dc.html", 1c) ---- */
 export const puzzle = {
@@ -124,3 +133,9 @@ export const puzzle = {
 };
 
 export const offClockTeaser = 'Squash, piano, crochet, too much matcha, and strong opinions about menus.';
+
+// Shown on cards and pages for projects marked `comingSoon` in projects.js.
+export const comingSoon = {
+  tag: 'Coming soon',
+  line: 'I’m still writing this one up. It’ll be here soon.',
+};

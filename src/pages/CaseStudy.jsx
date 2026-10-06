@@ -11,6 +11,7 @@ import { TLink } from '../components/TLink.jsx';
 import { projects, getProject, kindsOf } from '../data/projects.js';
 import { useTitle } from '../lib/useTitle.js';
 import NotFound from './NotFound.jsx';
+import { comingSoon } from '../data/site.js';
 
 function Progress() {
   const ref = useRef(null);
@@ -269,8 +270,23 @@ export default function CaseStudy() {
   useTitle(p?.title || 'Not found');
   if (!p) return <NotFound />;
 
-  const i = projects.indexOf(p);
-  const next = projects[(i + 1) % projects.length];
+  // Not ready yet: the page is blocked, only the title and a line show.
+  if (p.comingSoon) return (
+    <section className="notfound wrap">
+      <div className="tags rise" style={{ '--d': '0ms' }}>
+        {kindsOf(p).map((k) => <Tag key={k} tone={p.tone}>{k}</Tag>)}<Tag>{p.year}</Tag>
+        <Tag dot>{comingSoon.tag}</Tag>
+      </div>
+      <MixedHeadline size="var(--type-display)" delay={100} parts={[p.title, { text: '·', style: 'accent' }, { text: p.hook, style: 'italic' }]} />
+      <p className="lead rise" style={{ '--d': '300ms' }}>{comingSoon.line}</p>
+      <div className="rise" style={{ '--d': '400ms' }}><Button to="/" arrow>Back to the work</Button></div>
+    </section>
+  );
+
+  // "Next project" skips anything that isn't ready yet.
+  const ready = projects.filter((x) => !x.comingSoon);
+  const i = ready.indexOf(p);
+  const next = ready[(i + 1) % ready.length];
   let n = 0;
 
   // Picture first, unless there's no real cover yet: then the opening summary

@@ -3,10 +3,12 @@ import { TLink } from './TLink.jsx';
 import { Tag } from './Tag.jsx';
 import { Media } from './Media.jsx';
 import { kindsOf } from '../data/projects.js';
+import { comingSoon } from '../data/site.js';
 import { hasFinePointer, prefersReducedMotion } from '../lib/motion.js';
 
 /* Pastel tile with pointer tilt (±8°) and a glare that follows the pointer.
-   `pill` is the compact variant for smaller projects: one row, no image. */
+   `pill` is the compact variant for smaller projects: one row, no image.
+   A `comingSoon` project isn't a link: it stays still and shows a pill where the arrow would be. */
 export function ProjectCard({ project, index, pill = false }) {
   const ref = useRef(null);
   const { id, title, year, role, tone, cover, thumb } = project;
@@ -28,10 +30,17 @@ export function ProjectCard({ project, index, pill = false }) {
     el.classList.remove('is-tilting');
   };
 
-  const common = { to: `/work/${id}`, label: title, ref, 'data-cursor': 'View', style: { '--tone': `var(--${tone})` }, onMouseMove: move, onMouseLeave: leave };
+  const soon = !!project.comingSoon;
+  const Root = soon ? 'div' : TLink;
+  const common = soon
+    ? { ref, 'aria-disabled': 'true', style: { '--tone': `var(--${tone})` } }
+    : { to: `/work/${id}`, label: title, ref, 'data-cursor': 'View', style: { '--tone': `var(--${tone})` }, onMouseMove: move, onMouseLeave: leave };
+  const end = soon
+    ? <span className="card__soon"><span className="tag__dot" aria-hidden="true" />{comingSoon.tag}</span>
+    : <span className="card__arrow" aria-hidden="true">↗</span>;
 
   if (pill) return (
-    <TLink {...common} className="card card--pill">
+    <Root {...common} className={'card card--pill' + (soon ? ' card--soon' : '')}>
       <span className="card__grain" aria-hidden="true" />
       <span className="card__glare" aria-hidden="true" />
       <span className="card__index">{String(index).padStart(2, '0')}</span>
@@ -39,12 +48,12 @@ export function ProjectCard({ project, index, pill = false }) {
         <span className="card__title">{title}</span>
         <span className="card__tags">{kindsOf(project).map((k) => <Tag key={k} tone="paper">{k}</Tag>)}{year && <Tag>{year}</Tag>}</span>
       </span>
-      <span className="card__arrow" aria-hidden="true">↗</span>
-    </TLink>
+      {end}
+    </Root>
   );
 
   return (
-    <TLink {...common} className="card">
+    <Root {...common} className={'card' + (soon ? ' card--soon' : '')}>
       <span className="card__grain" aria-hidden="true" />
       <span className="card__glare" aria-hidden="true" />
       <span className="card__top">
@@ -57,8 +66,8 @@ export function ProjectCard({ project, index, pill = false }) {
           <span className="card__title">{title}</span>
           {role && <span className="card__role">{role}</span>}
         </span>
-        <span className="card__arrow" aria-hidden="true">↗</span>
+        {end}
       </span>
-    </TLink>
+    </Root>
   );
 }

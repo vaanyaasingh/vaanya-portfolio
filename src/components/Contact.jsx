@@ -8,7 +8,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /*
   Night panel with the contact form.
-  Sends to VITE_FORM_ENDPOINT (e.g. Formspree) when set; otherwise opens a
+  Sends to VITE_FORM_ENDPOINT (a Google Sheet's Apps Script URL, or Formspree) when set; otherwise opens a
   pre-filled email to VITE_CONTACT_EMAIL; otherwise points to LinkedIn.
 */
 export function Contact({ asHero = false }) {
@@ -30,10 +30,13 @@ export function Contact({ asHero = false }) {
     if (site.formEndpoint) {
       setStatus('sending');
       try {
+        // A Google Apps Script web app can't answer a CORS preflight, so it gets the
+        // same JSON as plain text (a "simple" request) and parses it itself.
+        const sheet = site.formEndpoint.includes('script.google.com');
         const res = await fetch(site.formEndpoint, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify({ name: form.name, email: form.email, message: form.message }),
+          headers: sheet ? { 'Content-Type': 'text/plain;charset=utf-8' } : { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({ name: form.name, email: form.email, message: form.message, page: location.pathname }),
         });
         setStatus(res.ok ? 'sent' : 'error');
       } catch { setStatus('error'); }

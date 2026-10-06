@@ -4,12 +4,12 @@ import { Button } from '../components/Button.jsx';
 import { Chip } from '../components/Chip.jsx';
 import { Tag } from '../components/Tag.jsx';
 import { Marquee } from '../components/Marquee.jsx';
-import { RevealWord } from '../components/RevealWord.jsx';
 import { ProjectCard } from '../components/ProjectCard.jsx';
 import { Reveal, SplitHeading } from '../components/Reveal.jsx';
 import { Contact } from '../components/Contact.jsx';
 import { Experience, GoGirl, Study } from '../components/Experience.jsx';
 import { projects, categories, kindsOf } from '../data/projects.js';
+import { heroNow } from '../data/site.js';
 import { useTransition } from '../lib/transition.jsx';
 import { hasFinePointer, prefersReducedMotion } from '../lib/motion.js';
 import { useTitle } from '../lib/useTitle.js';
@@ -70,13 +70,19 @@ export default function Home() {
           size="clamp(56px,10vw,160px)"
           delay={80}
           className="hero__title"
-          parts={['An engineer', { br: true }, 'who', { text: 'starts', style: 'italic' }, 'with', { text: 'people', style: 'circled' }]}
+          parts={['A', { text: 'developer', style: 'circled' }, { br: true }, 'who', { text: 'designs,', style: 'italic' }, 'too']}
         />
         <div className="hero__foot">
-          <p className="hero__lede rise" style={{ '--d': '520ms' }}>
-            I’m Vaanya. I build products in Bengaluru, and I <RevealWord tone="lilac" caption="Raseed · 5 interviews">talk</RevealWord> to the
-            people who’ll use them before I <RevealWord tone="peach" caption="watch-me-Groww · Groww CODE 2026">write the code</RevealWord>.
-          </p>
+          <div className="hero__intro">
+            <p className="hero__lede rise" style={{ '--d': '520ms' }}>
+              I’m Vaanya. I build products in Bengaluru. I love building creative solutions, and the small thrill of
+              code that finally runs.
+            </p>
+            <div className="hero__now rise" style={{ '--d': '580ms' }}>
+              <span className="label">Currently</span>
+              <div className="tags">{heroNow.map((t) => <Tag key={t.label} dot={t.dot}>{t.label}</Tag>)}</div>
+            </div>
+          </div>
           <div className="hero__cta rise" style={{ '--d': '620ms' }}>
             <Button arrow onClick={() => scrollTo('#work', { offset: -90 })}>See the work</Button>
             <Button variant="outline" to="/about" label="About">About me</Button>

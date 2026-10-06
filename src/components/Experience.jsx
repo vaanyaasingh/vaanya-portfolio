@@ -64,7 +64,7 @@ export function GoGirl({ label }) {
             <div className="panel__title">{community.title[0]}<em>{community.title[1]}</em></div>
           </div>
           <p className="panel__body">{community.body}</p>
-          <Media src={community.photo} tone="paper-0" ratio="16/9" label="a GGC event photo" className="panel__photo" />
+          <Media src={community.photo} alt={community.photoAlt} tone="paper-0" ratio="16/9" label="a GGC event photo" className="panel__photo" />
           <div className="stats">
             {community.stats.map((s) => <div key={s.k}><div className="stats__v">{s.v}</div><div className="label stats__k">{s.k}</div></div>)}
           </div>
@@ -78,7 +78,7 @@ export function GoGirl({ label }) {
 export function Study({ label }) {
   return (
     <section className="sec wrap" aria-label="Study">
-      <SectionHead label={label} parts={['Trained as an engineer,', { text: 'taught myself design', style: 'italic' }]} />
+      <SectionHead label={label} parts={['Engineer by degree,', { text: 'creative', style: 'italic' }, 'by heart']} />
       <div className="study">
         <Reveal className="school">
           <div className="school__meta"><span className="label">{study.when}</span><span className="label">{study.where}</span></div>

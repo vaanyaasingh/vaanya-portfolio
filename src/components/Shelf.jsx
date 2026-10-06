@@ -54,7 +54,7 @@ export function Shelf() {
               <span className="now__swatch" aria-hidden="true" />
               <span className="label now__k">{c.k}</span>
               <span className="now__v">{c.v}</span>
-              <span className="now__note">{c.note}</span>
+              {c.note && <span className="now__note">{c.note}</span>}
             </li>
           ))}
         </ul>

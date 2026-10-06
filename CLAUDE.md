@@ -41,11 +41,14 @@ in components.
 ## Site decisions Vaanya asked for (not in the design system)
 - **Home grid:** an equal three-column grid (two columns under 1100px, one under 900px). Big cards
   come first; projects with `size: 'pill'` render as compact pills the same width, after the big ones.
-  There's no staggered 7/5 layout. Six projects in total: 3 big (JobReady, Raseed,
-  watch-me-Groww) + 3 pills (Go Girl Community, KaamKar, Go Girl Organisation), so both rows are full
-  (swapped 2026-10-02). Card numbers follow the grid order. Every card, big or pill, shows its kind tags,
+  There's no staggered 7/5 layout. Six projects in total: 3 big (Raseed, watch-me-Groww,
+  Go Girl Organisation) + 3 pills (Go Girl Community, JobReady, KaamKar), so both rows are full
+  (Go Girl Organisation and JobReady swapped 2026-10-06). Card numbers follow the grid order. Every card, big or pill, shows its kind tags,
   and every arrow circle is the same size (52px).
   Keep big and pill counts at multiples of three.
+- **Coming soon:** `comingSoon: true` on a project keeps its card in the grid, swaps the arrow for a
+  "Coming soon" pill, makes it unclickable, and blocks `/work/<id>` (title + one line + back button).
+  "Next project" skips these. Set 2026-10-06 on watch-me-Groww and KaamKar; remove the flag when each is ready.
 - **Work page (Home) order:** hero → marquee → Selected work grid → 01 Experience → 02 Go Girl →
   03 Study → Say hello. All three live in `src/components/Experience.jsx`; they moved off About.
 - **Background grid:** a fixed 1cm hairline grid (`.bg__grid`, ink at .06) between the mesh and the
@@ -61,10 +64,10 @@ in components.
   line-height 1.3, the same as `.nav__link`, so it centres optically with the links. Don't set it
   back to line-height 1.
 - **About:** all copy is in `src/data/site.js` (`aboutIntro`, `shelf`, `currently`, `puzzle`, `offClockTeaser`).
-  Section order: intro → 01 The shelf (`Shelf.jsx`: one plank with all objects standing on it,
+  Section order (shelf moved above the intro 2026-10-06): 01 The shelf (`Shelf.jsx`: one plank with all objects standing on it,
   macOS-dock magnify on hover (objects scale in place with transforms, nothing slides; only items
   with a photo `src` are shown), museum-style label underneath, then a full-width "Currently…" card) →
-  02 Solve me (4×4 hobby sudoku, `Puzzle.jsx`) → outro. The shelf sits on the page (no card);
+  intro → 02 Solve me (4×4 hobby sudoku, `Puzzle.jsx`) → outro. The shelf sits on the page (no card);
   the puzzle is a meadow board. Both come from
   `Off the Clock.dc.html` (1b, 1c, 1d). She wants motion here, not a static page: the shelf auto-plays
   its stories until someone touches it, and the puzzle pops, shakes and ripples.
@@ -93,9 +96,10 @@ Start the next session here. Ask Vaanya for whatever a line says is waiting on h
 2. **Economics paper on the AI bubble and funding (PDF):** relevant for HCI masters as breadth, not core.
    Plan: a small "Writing" / "Research" entry (title, one line, PDF link), probably a pill, not a full
    case study. Ask its status (published / submitted / coursework) first.
-3. **CV:** `public/Vaanya-Singh-CV.pdf` is missing, so "Download CV" is broken on the live site
-   (it's `assets/Vaanya-Singh-CV.pdf` in the design project).
-4. **Photos:** About portrait, and the GGC event photo (`goGirl.community.photo`).
+3. **CV:** added 2026-10-06. Source is `resume/Vaanya-Singh-CV.html` (from "Vaanya Singh Resume.dc.html",
+   design project `be6cf6d0-dac8-41f7-ab13-0c257ee11fdc`); print it to `public/Vaanya-Singh-CV.pdf` at 794 × 1123 px, no margins.
+   Its Raseed RAG bullet and Go Girl "40%" line conflict with item 1 and the dropped sign-up claim; she's checking them.
+4. **Photos:** done 2026-10-06 (GGC pickleball photo in `goGirl.community.photo`). About portrait and the desk polaroid on "mid-way" were added 2026-10-06 (`public/about/`).
 5. **Go Girl Organisation** was rebuilt 2026-10-02 from her case study draft, with screens captured from the live
    site (`public/work/go-girl-organisation/`). Waiting on her (all left off the page): confirm the role title;
    launch date; analytics, donations and form submissions before/after; why CSR came first and why Netlify over
@@ -105,8 +109,8 @@ Start the next session here. Ask Vaanya for whatever a line says is waiting on h
 6. **Thumbnails** for the other projects (Raseed has `thumb`; others fall back to `cover`).
 
 **Copy to fill (placeholders are live on the site)**
-- Shelf: Passport story is `[One line about travel]` (`shelf` in `site.js`).
-- `currently`: every `[bracketed]` item. Ask if *Yesteryear* (Caro Claire Burke) is the current read.
+- `currently` (filled 2026-10-06): Watching (Minions & Monsters) has no note yet; the
+  Fred again.. concert has no date. Confirm the café is spelled "Turtle Matcha".
 - KaamKar is a stub with no case study.
 - JobReady: case study rewritten 2026-10-02 (research → insights → HMW → decisions → solution). All screens in
   `public/work/jobready/` (resume contact details blurred); a pill (keeps the 3 + 3 grid), no longer a draft.
@@ -146,7 +150,8 @@ Start the next session here. Ask Vaanya for whatever a line says is waiting on h
 - Off the clock page: not built. The design is in `Off the Clock.dc.html`. When it's built, add
   `src/pages/OffTheClock.jsx` + a `/off-the-clock` route in `App.jsx`, then set
   `offTheClock.ready = true` in `site.js`. Until then, About shows a "Page coming soon" tag.
-- `public/favicon.svg` still uses the old ink tile + tangerine dot, from before the no-ink/no-dot rules.
+- Favicon: `public/favicon.svg` is the 👩🏻‍💻 emoji drawn as SVG text (her choice, 2026-10-06; the one emoji exception).
+  Don't swap it for a rendered PNG of Apple's emoji art.
 - Git: pushes of big image sets need `http.postBuffer` raised (already set in this repo's config).
 
 ## Conventions
