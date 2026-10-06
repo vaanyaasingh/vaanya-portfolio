@@ -506,6 +506,7 @@ a:hover>.roll>span:last-child{transform:none}
 .cs-meta div{display:flex;flex-direction:column;gap:6px}
 .cs-meta dt{font-size:11px}
 .cs-meta dd{font-size:17px}
+.cs-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:-8px}
 .cs-text{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:48px}
 .cs-text__body{display:flex;flex-direction:column;gap:20px;max-width:var(--measure)}
 .cs-text__body p{font-size:var(--type-lead);line-height:1.5;text-wrap:pretty}

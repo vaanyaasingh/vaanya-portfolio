@@ -118,7 +118,7 @@ Start the next session here. Ask Vaanya for whatever a line says is waiting on h
   sessions (a section after the screens). App bugs she should fix: the resume PDF exports only the header
   (she doesn't want this on the site), the tutor shows raw `**markdown**`, the dashboard has a
   "0% Job Match" tile, plus the fake landing stats, "10+ languages", the 10-language onboarding list and the
-  hardcoded Google API key. No field for the live link (job-ready-six.vercel.app) yet.
+  hardcoded Google API key. Live demo + code links are in `links` (2026-10-06).
 - Raseed was restructured 2026-10-01 after the Case Study Bible + the Avika Behance case study: problem →
   research → fork → how it works → annotated notice screen → rule → phones → brand → what broke → trade-off
   → round two (proof) → next time → what's next. Scorecard 19/25; the facts below are worth about +4.

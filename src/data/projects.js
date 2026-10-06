@@ -21,6 +21,7 @@
   of the arrow, makes it unclickable, and blocks the case study page.
   `size: 'pill'` shows the project as a compact pill under the big cards
   (for smaller / side projects). Everything else is a big card.
+  `links: [{ label, href }]` shows as buttons under the role/stack strip (first one filled).
 */
 
 export const projects = [
@@ -33,6 +34,7 @@ export const projects = [
     tone: 'lilac',
     gradient: 'dusk',
     role: 'Co-founder · research, brand, events and its web page · 2024 to now',
+    links: [{ label: 'Community page', href: 'https://gogirlorganisation.com/community' }],
     stack: 'Canva · Figma · WhatsApp · Luma · Newsletter · Instagram',
     summary: 'A women in tech community of 1000+, with meetups, workshops and 30+ channels.',
     hook: 'a women in tech community',
@@ -138,6 +140,7 @@ export const projects = [
     tone: 'mint',
     gradient: 'meadow',
     role: 'Team lead of 4 · product, frontend and AI architecture',
+    links: [{ label: 'Live demo', href: 'https://project-raseed.vercel.app' }, { label: 'Code', href: 'https://github.com/vaanyaasingh/project-raseed' }],
     stack: 'Next.js · FastAPI · Gemini on Vertex AI · Cloud Run',
     summary: 'A five-agent compliance copilot that five interviews moved from small businesses to their CAs.',
     hook: 'built for the wrong customer',
@@ -253,6 +256,7 @@ export const projects = [
     tone: 'butter',
     gradient: 'dawn',
     role: 'Solo · Groww CODE 2026',
+    links: [{ label: 'Live demo', href: 'https://watch-me-groww.vercel.app' }, { label: 'Code', href: 'https://github.com/vaanyaasingh/watch-me-Groww' }],
     stack: 'Next.js · FastAPI · Postgres + pgvector · Gemini on Vertex AI',
     summary: 'A watchlist that tells you what changed since you last looked, and stays quiet otherwise.',
     hook: 'a smart market watchlist',
@@ -344,6 +348,7 @@ export const projects = [
     tone: 'peach',
     gradient: 'dawn',
     role: 'Team of 3 with Manya Sharma and Aryaki',
+    links: [{ label: 'Live demo', href: 'https://job-ready-six.vercel.app' }, { label: 'Code', href: 'https://github.com/vaanyaasingh/JobReady' }],
     stack: 'Figma · React · Node.js · MongoDB · LLaMA 3.1',
     summary: 'Job skills taught in English, Hindi and Kannada, ending in a resume you can send.',
     hook: 'in your own language',
@@ -438,6 +443,7 @@ export const projects = [
     gradient: 'dusk',
     size: 'pill',
     role: 'Solo · one-week build',
+    links: [{ label: 'Code', href: 'https://github.com/vaanyaasingh/kaamkar' }],
     stack: 'React · FastAPI · Python',
     summary: 'A freelance job-matching prototype, built solo over New Year 2024.',
     hook: 'a week-long build',
@@ -453,6 +459,7 @@ export const projects = [
     tone: 'rose',
     gradient: 'dawn',
     role: 'Content strategy, information architecture and build lead · with Japnit Ahuja, Jessica Singh and Shaniya Khan',
+    links: [{ label: 'Live site', href: 'https://gogirlorganisation.com' }],
     stack: 'Next.js · TypeScript · Tailwind CSS · Framer Motion · Netlify · Claude Code',
     summary: 'A nonprofit’s website, rebuilt for the people who decide in one scroll whether a girl gets a tutor.',
     hook: 'a front door for one scroll',

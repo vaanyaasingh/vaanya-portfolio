@@ -318,6 +318,12 @@ export default function CaseStudy() {
         ))}
       </dl>
 
+      {p.links?.length > 0 && (
+        <div className="cs-links rise" style={{ '--d': '470ms' }}>
+          {p.links.map((l, k) => <Button key={l.href} href={l.href} variant={k ? 'outline' : 'primary'} arrow>{l.label}</Button>)}
+        </div>
+      )}
+
       {!problemFirst && cover}
 
       {p.sections.map((s, k) => {
