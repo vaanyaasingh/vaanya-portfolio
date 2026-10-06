@@ -48,7 +48,7 @@ in components.
   Keep big and pill counts at multiples of three.
 - **Coming soon:** `comingSoon: true` on a project keeps its card in the grid, swaps the arrow for a
   "Coming soon" pill, makes it unclickable, and blocks `/work/<id>` (title + one line + back button).
-  "Next project" skips these. Set 2026-10-06 on watch-me-Groww and KaamKar; remove the flag when each is ready.
+  "Next project" skips these. Set 2026-10-06 on watch-me-Groww and KaamKar; removed from watch-me-Groww the same day (it's live). Remove it from KaamKar when it's ready.
 - **Work page (Home) order:** hero → marquee → Selected work grid → 01 Experience → 02 Go Girl →
   03 Study → Say hello. All three live in `src/components/Experience.jsx`; they moved off About.
 - **Background grid:** a fixed 1cm hairline grid (`.bg__grid`, ink at .06) between the mesh and the

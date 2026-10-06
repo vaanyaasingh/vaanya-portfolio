@@ -265,7 +265,6 @@ export const projects = [
     coverAlt: 'Three screens: the attention feed, a stock with its “since you last checked” reason, and the watchlist',
     // TODO(Vaanya): after the user sessions, add the research, the turn, proof and the reflection.
     placeholder: true,
-    comingSoon: true,
     sections: [
       { type: 'summary', items: [
         { k: 'The problem', v: 'Most investors open the app after days away. A list of every red number can push a nervous one to sell.' },
